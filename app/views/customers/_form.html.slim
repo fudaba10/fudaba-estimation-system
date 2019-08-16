@@ -1,0 +1,41 @@
+-if customer.errors.present?
+  ul#error_explanation
+    - customer.errors.full_messages.each do |message|
+      li = message
+
+= form_with model: customer, local: true do |f|
+  table.table.table-bordered
+    tr
+      .form_group
+        th= f.label :customer_name
+        td= f.text_field :customer_name, class: 'form-control', id: 'customer_name'
+    tr
+      .form_group
+      th= f.label :customer_name_kana
+      td= f.text_field :customer_name_kana, class: 'form-control', id: 'customer_name_kana'
+    tr
+      .form_group
+      th= f.label :customer_initial
+      td= f.text_field :customer_initial, class: 'form-control', id: 'customer_initial'
+    tr
+      .form_group
+      th= f.label :postal_code
+      td= f.text_field :postal_code, class: 'form-control', id: 'postal_code'
+    tr
+      .form_group
+      th= f.label :address
+      td= f.text_field :address, class: 'form-control', id: 'address'
+    tr
+      .form_group
+      th= f.label :tel
+      td= f.text_field :tel, class: 'form-control', id: 'tel'
+    tr
+      .form_group
+      th= f.label :fax
+      td= f.text_field :fax, class: 'form-control', id: 'fax'
+    tr
+      .form_group
+      th= f.label :remarks
+      td= f.text_field :remarks, class: 'form-control', id: 'remarks'
+
+  = f.submit '登録', class: 'btn btn-primary'

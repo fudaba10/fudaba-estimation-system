@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: MyString
+  customer_name_kana: MyString
+  customer_initial: MyString
+  postal_code: MyString
+  address: MyString
+  tel: MyString
+  fax: MyString
+  remarks: MyString
+  is_deleted: false
+  deleted_at: 2019-08-15 22:59:36
+
+two:
+  customer_name: MyString
+  customer_name_kana: MyString
+  customer_initial: MyString
+  postal_code: MyString
+  address: MyString
+  tel: MyString
+  fax: MyString
+  remarks: MyString
+  is_deleted: false
+  deleted_at: 2019-08-15 22:59:36

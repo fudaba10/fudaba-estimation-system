@@ -1,0 +1,52 @@
+h5 顧客詳細
+
+table.table.table-hover
+  tbody
+    tr
+      th= Customer.human_attribute_name(:id)
+      td= @customer.id
+
+    tr
+      th= Customer.human_attribute_name(:customer_name)
+      td= @customer.customer_name
+
+    tr
+      th= Customer.human_attribute_name(:customer_name_kana)
+      td= @customer.customer_name_kana
+
+    tr
+      th= Customer.human_attribute_name(:customer_initial)
+      td= @customer.customer_initial
+
+    tr
+      th= Customer.human_attribute_name(:postal_code)
+      td= @customer.postal_code
+
+    tr
+      th= Customer.human_attribute_name(:tel)
+      td= @customer.tel
+
+    tr
+      th= Customer.human_attribute_name(:fax)
+      td= @customer.fax
+
+    tr
+      th= Customer.human_attribute_name(:remarks)
+      td= @customer.remarks
+
+    tr
+      th= Customer.human_attribute_name(:created_at)
+      td= @customer.created_at
+
+    tr
+      th= Customer.human_attribute_name(:updated_at)
+      td= @customer.updated_at
+
+.nav.justify-content-center
+    = link_to '編集', edit_customer_path, class: 'btn btn-primary mr-3'
+    = link_to '削除', @customer, method: :delete,
+            data: { confirm: "顧客「#{@customer.customer_name}」を削除します。よろしいですか？"},
+            class: 'btn btn-danger'
+
+.nav.justify-content-end
+    = link_to '戻る', customers_path
