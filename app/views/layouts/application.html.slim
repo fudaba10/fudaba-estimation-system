@@ -9,7 +9,16 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand 見積作成システム
+      .navbar-brand Fudaba-Mitsumori
+
+      ul.navbar-nav.ml-auto
+        - if current_user
+          / li.nav-item= link_to '顧客一覧', customers_path, class: 'nav-link'
+          / li.nav-item= link_to '社員一覧', admin_employees_path, class: 'nav-link'
+          li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+        - else
+          li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
+
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice

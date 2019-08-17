@@ -9,7 +9,7 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.string :tel
       t.string :fax
       t.string :remarks
-      t.boolean :is_deleted, null: false, default: 0
+      t.boolean :is_deleted, null: false, default: false
       t.datetime :deleted_at
 
       t.timestamps

@@ -33,7 +33,7 @@ class CustomersController < ApplicationController
 
   def destroy
     customer = Customer.find(params[:id])
-    customer.update!(is_deleted: true)
+    customer.update!(is_deleted: true, deleted_at: DateTime.now)
     redirect_to customers_url, notice: "顧客「#{customer.customer_name}」を削除しました。"
   end
 

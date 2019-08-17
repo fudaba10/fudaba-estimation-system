@@ -9,6 +9,7 @@ ja:
                          has_many: "%{record}が存在しているので削除できません"
           models:
                customer: 顧客マスタ
+               employee: 社員マスタ
           attributes:
                customer:
                     id: 顧客ID
@@ -24,9 +25,11 @@ ja:
                     deleted_at: 削除日時
                     created_at: 登録日時
                     updated_at: 更新日時
-               user:
-                    name: 名前
-                    email: メールアドレス
+               employee:
+                    id: 社員ID
+                    employee_name: 社員名
+                    employee_name_kana: 社員名カナ
+                    login_id: ログインID
                     admin: 管理者権限
                     password: パスワード
                     password_confirmation: パスワード(確認)

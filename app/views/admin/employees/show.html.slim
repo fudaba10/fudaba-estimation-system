@@ -1,0 +1,40 @@
+h5 社員詳細
+
+table.table.table-hover
+  tbody
+    tr
+      th= Employee.human_attribute_name(:id)
+      td= @employee.id
+
+    tr
+      th= Employee.human_attribute_name(:employee_name)
+      td= @employee.employee_name
+
+    tr
+      th= Employee.human_attribute_name(:employee_name_kana)
+      td= @employee.employee_name_kana
+
+    tr
+      th= Employee.human_attribute_name(:login_id)
+      td= @employee.login_id
+
+    tr
+      th= Employee.human_attribute_name(:admin)
+      td= @employee.admin? ? 'あり' : 'なし'
+
+    tr
+      th= Employee.human_attribute_name(:created_at)
+      td= @employee.created_at
+
+    tr
+      th= Employee.human_attribute_name(:updated_at)
+      td= @employee.updated_at
+
+.nav.justify-content-center
+  = link_to '編集', edit_admin_employee_path, class: 'btn btn-primary mr-3'
+  = link_to '削除', [:admin, @employee], method: :delete,
+          data: { confirm: "社員「#{@employee.employee_name}」を削除します。よろしいですか？"},
+          class: 'btn btn-danger'
+
+.nav.justify-content-end
+  = link_to '戻る', admin_employees_path

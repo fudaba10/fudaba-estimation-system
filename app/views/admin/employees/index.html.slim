@@ -1,0 +1,49 @@
+h5 社員一覧
+
+= search_form_for @q, url: admin_employees_url, class: 'mb-5' do |f|
+  .form-group.row
+    =f.label :id_cont, '社員ID', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :id_cont, class: 'form-control'
+  .form-group.row
+    = f.label :employee_name_cont, '社員名', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :employee_name_cont, class: 'form-control'
+  .form-group.row
+    = f.label :employee_name_kana_cont, '社員名カナ', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :employee_name_kana_cont, class: 'form-control'
+    .form-group
+      = f.submit class: 'btn btn-outline-primary'
+
+= link_to '新規登録', new_admin_employee_path, class: 'btn btn-primary'
+br
+.mb-3
+  table.table.table-bordered.table-hover
+    thead.thead-default
+      tr
+        th= Employee.human_attribute_name(:id)
+        th= Employee.human_attribute_name(:employee_name)
+        th= Employee.human_attribute_name(:employee_name_kana)
+        th= Employee.human_attribute_name(:login_id)
+        th= Employee.human_attribute_name(:admin)
+        th= Employee.human_attribute_name(:created_at)
+        th= Employee.human_attribute_name(:updated_at)
+        th
+
+      tbody
+        - @employees.each do |employee|
+          tr
+            td= employee.id
+            td= link_to employee.employee_name, [:admin, employee]
+            td= employee.employee_name_kana
+            td= employee.login_id
+            td= employee.admin? ? 'あり' : 'なし'
+            td= employee.created_at
+            td= employee.updated_at
+
+            td
+              = link_to '編集', edit_admin_employee_path(employee), class: 'btn btn-primary mr-3'
+              = link_to '削除', [:admin, employee], method: :delete,
+                      data: { confirm: "社員「#{employee.employee_name}」を削除します。よろしいですか？"},
+                      class: 'btn btn-danger'

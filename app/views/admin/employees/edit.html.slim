@@ -1,0 +1,6 @@
+h5 社員編集
+
+.nav.justify-content-end
+  = link_to '社員一覧', admin_employees_path, class: 'nav-link'
+
+= render partial: 'form', locals: {employee: @employee}
