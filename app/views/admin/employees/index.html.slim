@@ -1,10 +1,7 @@
-h5 社員一覧
-
+h4 社員一覧
+br
+h5 【検索条件入力】
 = search_form_for @q, url: admin_employees_url, class: 'mb-5' do |f|
-  .form-group.row
-    =f.label :id_cont, '社員ID', class: 'col-sm-2 col-form-label'
-    .col-sm-10
-      = f.search_field :id_cont, class: 'form-control'
   .form-group.row
     = f.label :employee_name_cont, '社員名', class: 'col-sm-2 col-form-label'
     .col-sm-10

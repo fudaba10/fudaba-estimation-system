@@ -9,6 +9,7 @@ ja:
                          has_many: "%{record}が存在しているので削除できません"
           models:
                customer: 顧客マスタ
+               vendor: 仕入先マスタ
                employee: 社員マスタ
           attributes:
                customer:
@@ -21,6 +22,18 @@ ja:
                     tel: 電話番号
                     fax: FAX番号
                     remarks: 備考
+                    is_deleted: 削除フラグ
+                    deleted_at: 削除日時
+                    created_at: 登録日時
+                    updated_at: 更新日時
+               vendor:
+                    id: 仕入先ID
+                    vendor_name: 仕入先名
+                    vendor_name_kana: 仕入先名カナ
+                    postal_code: 郵便番号
+                    address: 住所
+                    tel: 電話番号
+                    fax: FAX番号
                     is_deleted: 削除フラグ
                     deleted_at: 削除日時
                     created_at: 登録日時

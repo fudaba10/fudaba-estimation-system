@@ -1,0 +1,44 @@
+h5 仕入先詳細
+
+table.table.table-hover
+  tbody
+    tr
+      th= Vendor.human_attribute_name(:id)
+      td= @vendor.id
+
+    tr
+      th= Vendor.human_attribute_name(:vendor_name)
+      td= @vendor.vendor_name
+
+    tr
+      th= Vendor.human_attribute_name(:vendor_name_kana)
+      td= @vendor.vendor_name_kana
+
+    tr
+      th= Vendor.human_attribute_name(:postal_code)
+      td= @vendor.postal_code
+
+    tr
+      th= Vendor.human_attribute_name(:tel)
+      td= @vendor.tel
+
+    tr
+      th= Vendor.human_attribute_name(:fax)
+      td= @vendor.fax
+
+    tr
+      th= Vendor.human_attribute_name(:created_at)
+      td= @vendor.created_at
+
+    tr
+      th= Vendor.human_attribute_name(:updated_at)
+      td= @vendor.updated_at
+
+.nav.justify-content-center
+  = link_to '編集', edit_vendor_path, class: 'btn btn-primary mr-3'
+  = link_to '削除', @vendor, method: :delete,
+          data: { confirm: "仕入先「#{@vendor.vendor_name}」を削除します。よろしいですか？"},
+          class: 'btn btn-danger'
+
+.nav.justify-content-end
+  = link_to '戻る', vendors_path

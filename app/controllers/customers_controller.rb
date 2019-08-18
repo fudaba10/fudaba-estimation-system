@@ -28,7 +28,7 @@ class CustomersController < ApplicationController
   def update
     customer = Customer.find(params[:id])
     customer.update!(customer_params)
-    redirect_to customers_url: "顧客「#{customer.customer_name}」を更新しました。"
+    redirect_to customers_url, notice: "顧客「#{customer.customer_name}」を更新しました。"
   end
 
   def destroy

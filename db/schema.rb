@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_074044) do
+ActiveRecord::Schema.define(version: 2019_08_18_042932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 2019_08_17_074044) do
     t.string "login_id", null: false
     t.string "password_digest", null: false
     t.boolean "admin", default: false, null: false
+    t.boolean "is_deleted", default: false, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vendors", force: :cascade do |t|
+    t.string "vendor_name", null: false
+    t.string "vendor_name_kana", null: false
+    t.string "postal_code"
+    t.string "address"
+    t.string "tel"
+    t.string "fax"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false

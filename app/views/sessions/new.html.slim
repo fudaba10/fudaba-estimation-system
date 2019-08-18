@@ -1,4 +1,3 @@
-h2 ログイン
 
 = form_with scope: :session, local: true do |f|
   .form-group
@@ -7,4 +6,4 @@ h2 ログイン
   .form-group
     = f.label :password, 'パスワード'
     = f.password_field :password, class: 'form-control', id: 'session_password'
-  = f.submit 'ログイン', class: 'btn btn-primary'
+  = f.submit 'ログイン', class: 'btn btn-primary btn-lg btn-block'

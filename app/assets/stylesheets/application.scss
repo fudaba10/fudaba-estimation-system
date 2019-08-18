@@ -1,6 +1,29 @@
 @import "bootstrap";
 
-th {
+h2 {
+  text-align: center;
+}
+
+//index
+th, .toc {
   text-align: center;
   vertical-align: middle;
+}
+
+//login
+input[type="text"]{
+  margin:0 auto;
+  width: 40%;
+  height: 40px;
+}
+
+input[type="password"]{
+  margin:0 auto;
+  width: 40%;
+  height: 40px;
+}
+
+
+div.form-group {
+  text-align: center;
 }
