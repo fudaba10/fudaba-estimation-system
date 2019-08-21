@@ -1,0 +1,42 @@
+= form_with model: estimate_h, url: estimates_path, local: true do |f|
+  table
+    tr
+      th= f.label :customer
+      td= f.text_field :customer, class: 'form-control', id: 'customer'
+    tr
+      th= f.label :customer_person
+      td= f.text_field :customer_person, class: 'form-control', id: 'customer_person'
+
+    tr
+      th= f.label :estimate_id
+      td= f.text_field :estimate_id, class: 'form-control', id: 'estimate_id'
+
+  table.table.table-bordered
+    thead.thead-default
+    = f.fields_for :estimate_d do |d|
+      tr
+        th= f.label :product_name
+        th= f.label :detail
+        th= f.label :quantity
+        th= f.label :kind
+        th= f.label :unit_price
+        th= f.label :total_fee
+        th= f.label :tax
+        th= f.label :tax_amount
+        th= f.label :delivery_period
+        th= f.label :vendor_id
+
+      tbody
+        tr
+          td= d.text_field :product_name, class: 'form-control', id: 'product_name'
+          td= d.text_field :detail, class: 'form-control', id: 'detail'
+          td= d.number_field :quantity, class: 'form-control', id: 'quantity'
+          td= d.text_field :kind, class: 'form-control', id: 'kind'
+          td= d.number_field :unit_price, class: 'form-control', id: 'unit_price'
+          td= d.number_field :total_fee, class: 'form-control', id: 'total_fee'
+          td= d.number_field :tax, class: 'form-control', id: 'tax'
+          td= d.number_field :tax_amount, class: 'form-control', id: 'tax_amount'
+          td= d.text_field :delivery_period, class: 'form-control', id: 'delivery_period'
+          td= d.number_field :vendor_id, class: 'form-control', id: 'vendor_id'
+
+  = f.submit '登録', class: 'btn btn-primary'
