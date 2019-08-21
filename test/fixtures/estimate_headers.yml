@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: 1
+  cutomer_person: MyString
+  estimate_id: MyString
+  employee: 1
+  is_deleted: false
+  deleted_at: 2019-08-20 17:58:36
+
+two:
+  customer: 1
+  cutomer_person: MyString
+  estimate_id: MyString
+  employee: 1
+  is_deleted: false
+  deleted_at: 2019-08-20 17:58:36

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  produce_name: MyString
+  detail: MyString
+  quantity: 1
+  type: 
+  unit_price: 
+  total_fee: 
+  tax: 
+  tax_amount: 
+  delivery_period: MyString
+  vendor: 
+  estimate_header: 
+  estimate_detail_id: 
+
+two:
+  produce_name: MyString
+  detail: MyString
+  quantity: 1
+  type: 
+  unit_price: 
+  total_fee: 
+  tax: 
+  tax_amount: 
+  delivery_period: MyString
+  vendor: 
+  estimate_header: 
+  estimate_detail_id: 
