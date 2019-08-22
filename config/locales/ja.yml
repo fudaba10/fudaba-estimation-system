@@ -11,6 +11,8 @@ ja:
                customer: 顧客マスタ
                vendor: 仕入先マスタ
                employee: 社員マスタ
+               estimate_header: 見積見出
+               estimate_detail: 見積詳細
           attributes:
                customer:
                     id: 顧客ID
@@ -46,6 +48,30 @@ ja:
                     admin: 管理者権限
                     password: パスワード
                     password_confirmation: パスワード(確認)
+                    created_at: 登録日時
+                    updated_at: 更新日時
+               estimate_header:
+                    id: 見積書ID
+                    customer_id: 顧客ID
+                    customer_person: 担当者
+                    estimate_id: 見積書NO
+                    employee_id: 社員ID
+                    created_at: 登録日時
+                    updated_at: 更新日時
+               estimate_detail:
+                    id: 見積書詳細ID
+                    product_name: 商品名
+                    detail: 型式・詳細
+                    quantity: 数量
+                    kind: 単位
+                    unit_price: 単価
+                    total_fee: 金額
+                    tax: 消費税
+                    tax_amount: 税込金額
+                    delivery_period: 納期
+                    vendor_id: 仕入先ID
+                    estimate_header_id: 見積書ID
+                    estimate_detail_id: 見積書明細NO
                     created_at: 登録日時
                     updated_at: 更新日時
      date:
