@@ -2,18 +2,18 @@ h1 見積一覧
 = link_to '新規登録', new_estimate_path, class: 'btn btn-primary'
 
 
-/ h5 【検索条件入力】
-/ = search_form_for @q, class: 'mb-5' do |f|
-/   .form-group.row
-/     = f.label :customer_name_cont, '顧客名', class: 'col-sm-2 col-form-label'
-/     .col-sm-10
-/       = f.search_field :customer_name_cont, class: 'form-control'
-/   .form-group.row
-/     = f.label :customer_name_kana_cont, '顧客名カナ', class: 'col-sm-2 col-form-label'
-/     .col-sm-10
-/       = f.search_field :customer_name_kana_cont, class: 'form-control'
-/     .form-group
-/       = f.submit class: 'btn btn-outline-primary'
+h5 【検索条件入力】
+= search_form_for @q, url: estimates_path, class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :customer_id_cont, '顧客名', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :customer_id_cont, class: 'form-control'
+  .form-group.row
+    = f.label :product_name_cont, '商品名', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :product_name_cont, class: 'form-control'
+  .form-group
+  = f.submit class: 'btn btn-outline-primary'
 
 br
 .mb-3
