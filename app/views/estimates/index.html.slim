@@ -1,7 +1,6 @@
 h1 見積一覧
 = link_to '新規登録', new_estimate_path, class: 'btn btn-primary'
 
-
 h5 【検索条件入力】
 = search_form_for @q, url: estimates_path, class: 'mb-5' do |f|
   .form-group.row
@@ -9,9 +8,22 @@ h5 【検索条件入力】
     .col-sm-10
       = f.search_field :customer_id_cont, class: 'form-control'
   .form-group.row
-    = f.label :product_name_cont, '商品名', class: 'col-sm-2 col-form-label'
+    = f.label :estimate_details_product_name_cont, '商品名', class: 'col-sm-2 col-form-label'
     .col-sm-10
-      = f.search_field :product_name_cont, class: 'form-control'
+      = f.search_field :estimate_details_product_name_cont, class: 'form-control'
+  .form-group.row
+    = f.label :estimate_details_detail_cont, '型式', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :estimate_details_detail_cont, class: 'form-control'
+  .form-group.row
+    = f.label :estimate_details_unit_price_cont, '単価', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :estimate_details_unit_price_cont, class: 'form-control'
+  .form-group.row
+    = f.label :estimate_details_vendor_id_cont, '仕入先名', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :estimate_details_vendor_id_cont, class: 'form-control'
+
   .form-group
   = f.submit class: 'btn btn-outline-primary'
 
@@ -24,18 +36,36 @@ br
         th= Customer.human_attribute_name(:customer_name)
         th= EstimateHeader.human_attribute_name(:customer_person)
         th= EstimateDetail.human_attribute_name(:product_name)
+        th= EstimateDetail.human_attribute_name(:detail)
+        th= EstimateDetail.human_attribute_name(:quantity)
+        th= EstimateDetail.human_attribute_name(:kind)
+        th= EstimateDetail.human_attribute_name(:unit_price)
+        th= EstimateDetail.human_attribute_name(:total_fee)
+        th= EstimateDetail.human_attribute_name(:tax)
+        th= EstimateDetail.human_attribute_name(:tax_amount)
+        th= EstimateDetail.human_attribute_name(:delivery_period)
+        th= Vendor.human_attribute_name(:vendor_name)
         th
+
 
       tbody
         - @estimates.each do |estimate|
           tr
-            td.toc= estimate.estimate_id
+            td.toc= link_to estimate.estimate_id, estimate_path(estimate.eh_id)
             td= estimate.customer_name
             td= estimate.customer_person
             td= estimate.product_name
-
+            td= estimate.detail
+            td= estimate.quantity
+            td= estimate.kind
+            td= estimate.unit_price
+            td= estimate.total_fee
+            td= estimate.tax
+            td= estimate.tax_amount
+            td= estimate.delivery_period
+            td= estimate.vendor_name
             td
               = link_to '編集', edit_estimate_path(estimate), class: 'btn btn-primary mr-3'
-              = link_to '削除', estimates_path, method: :delete,
+              = link_to '削除', estimate_path(estimate), method: :delete,
                       data: { confirm: "見積書「#{estimate.estimate_id}」を削除します。よろしいですか？"},
                       class: 'btn btn-danger'

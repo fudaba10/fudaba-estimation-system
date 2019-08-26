@@ -1,2 +1,47 @@
-h1 Estimates#show
-p Find me in app/views/estimates/show.html.slim
+h5 見積詳細
+br
+
+p= EstimateHeader.human_attribute_name(:estimate_id)
+p= @estimate.estimate_id
+p= Customer.human_attribute_name(:customer_name)
+p= @estimate.customer_name
+p= EstimateHeader.human_attribute_name(:customer_person)
+p= @estimate.customer_person
+
+.mb-3
+  table.table.table-bordered.table-hover.index-group
+    thead.thead-default
+      tr
+        th= EstimateDetail.human_attribute_name(:product_name)
+        th= EstimateDetail.human_attribute_name(:detail)
+        th= EstimateDetail.human_attribute_name(:quantity)
+        th= EstimateDetail.human_attribute_name(:kind)
+        th= EstimateDetail.human_attribute_name(:unit_price)
+        th= EstimateDetail.human_attribute_name(:total_fee)
+        th= EstimateDetail.human_attribute_name(:tax)
+        th= EstimateDetail.human_attribute_name(:tax_amount)
+        th= EstimateDetail.human_attribute_name(:delivery_period)
+        th= Vendor.human_attribute_name(:vendor_name)
+
+      tbody
+        td= @estimate.product_name
+        td= @estimate.detail
+        td= @estimate.quantity
+        td= @estimate.kind
+        td= @estimate.unit_price
+        td= @estimate.total_fee
+        td= @estimate.tax
+        td= @estimate.tax_amount
+        td= @estimate.delivery_period
+        td= @estimate.vendor_name
+
+
+
+.nav.justify-content-center
+  = link_to '編集', edit_estimate_path(@estimate), class: 'btn btn-primary mr-3'
+  = link_to '削除', estimate_path(@estimate.eh_id), method: :delete,
+          data: { confirm: "見積書「#{@estimate.estimate_id}」を削除します。よろしいですか？"},
+          class: 'btn btn-danger'
+
+.nav.justify-content-end
+  = link_to '戻る', estimates_path
