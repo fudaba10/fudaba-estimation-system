@@ -1,10 +1,8 @@
 class EstimatesController < ApplicationController
   def index
-    @q = EstimateHeader.joins({:estimate_details => :vendor}, :customer)
+    @q = EstimateHeader.includes(:customer)
              .where(is_deleted: false)
              .order(created_at: :desc)
-             .select("vendors.vendor_name, customers.customer_name,
-estimate_details.*, estimate_headers.*, estimate_headers.id as eh_id")
              .ransack(params[:q])
     @estimates = @q.result(distinct: true)
   end
@@ -55,14 +53,11 @@ estimate_details.*, estimate_headers.*, estimate_headers.id as eh_id")
   end
 
   def show
-    @estimate = EstimateHeader.joins({:estimate_details => :vendor}, :customer)
-                    .select("vendors.vendor_name, customers.customer_name,
-estimate_details.*, estimate_headers.*, estimate_headers.id as eh_id")
-                    .find(params[:id])
+    @estimate = EstimateHeader.includes([{estimate_details: :vendor}, :customer]).find(params[:id])
   end
 
   def edit
-    estimate = EstimateHeader.joins({:estimate_details => :vendor}, :customer)
+    estimate = EstimateHeader.includes({:estimate_details => :vendor}, :customer)
                    .select("vendors.vendor_name, customers.customer_name,
 estimate_details.*, estimate_headers.*")
                    .find(params[:id])
@@ -71,11 +66,12 @@ estimate_details.*, estimate_headers.*")
   end
 
   def destroy
-    estimate_h = EstimateHeader.find(params[:id])
-    estimate_d = EstimateDetail.where(estimate_header_id: params[:estimate_header_id])
-    estimate_h.update!(is_deleted: true, deleted_at: DateTime.now)
-    estimate_d.destroy_all
-    redirect_to estimates_url, notice: "見積書NO「#{estimate_h.estimate_id}」を削除しました。"
+    estimate = EstimateHeader.find(params[:id])
+    estimate.update!(is_deleted: true, deleted_at: DateTime.now)
+    #物理削除不要？
+    # estimate_d = EstimateDetail.where(estimate_header_id: params[:id])
+    # estimate_d.destroy_all
+    redirect_to estimates_url, notice: "見積書NO「#{estimate.estimate_id}」を削除しました。"
   end
 
   private

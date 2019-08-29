@@ -35,35 +35,15 @@ br
         th= EstimateHeader.human_attribute_name(:estimate_id)
         th= Customer.human_attribute_name(:customer_name)
         th= EstimateHeader.human_attribute_name(:customer_person)
-        th= EstimateDetail.human_attribute_name(:product_name)
-        th= EstimateDetail.human_attribute_name(:detail)
-        th= EstimateDetail.human_attribute_name(:quantity)
-        th= EstimateDetail.human_attribute_name(:kind)
-        th= EstimateDetail.human_attribute_name(:unit_price)
-        th= EstimateDetail.human_attribute_name(:total_fee)
-        th= EstimateDetail.human_attribute_name(:tax)
-        th= EstimateDetail.human_attribute_name(:tax_amount)
-        th= EstimateDetail.human_attribute_name(:delivery_period)
-        th= Vendor.human_attribute_name(:vendor_name)
         th
 
 
       tbody
         - @estimates.each do |estimate|
           tr
-            td.toc= link_to estimate.estimate_id, estimate_path(estimate.eh_id)
-            td= estimate.customer_name
+            td.toc= link_to estimate.estimate_id, estimate_path(estimate.id)
+            td= estimate.customer.customer_name
             td= estimate.customer_person
-            td= estimate.product_name
-            td= estimate.detail
-            td= estimate.quantity
-            td= estimate.kind
-            td= estimate.unit_price
-            td= estimate.total_fee
-            td= estimate.tax
-            td= estimate.tax_amount
-            td= estimate.delivery_period
-            td= estimate.vendor_name
             td
               = link_to '編集', edit_estimate_path(estimate), class: 'btn btn-primary mr-3'
               = link_to '削除', estimate_path(estimate), method: :delete,

@@ -4,7 +4,7 @@ br
 p= EstimateHeader.human_attribute_name(:estimate_id)
 p= @estimate.estimate_id
 p= Customer.human_attribute_name(:customer_name)
-p= @estimate.customer_name
+p= @estimate.customer.customer_name
 p= EstimateHeader.human_attribute_name(:customer_person)
 p= @estimate.customer_person
 
@@ -24,22 +24,22 @@ p= @estimate.customer_person
         th= Vendor.human_attribute_name(:vendor_name)
 
       tbody
-        td= @estimate.product_name
-        td= @estimate.detail
-        td= @estimate.quantity
-        td= @estimate.kind
-        td= @estimate.unit_price
-        td= @estimate.total_fee
-        td= @estimate.tax
-        td= @estimate.tax_amount
-        td= @estimate.delivery_period
-        td= @estimate.vendor_name
+        td= @estimate.estimate_details.product_name
+        / td= @estimate.estimate_details.detail
+        / td= @estimate.estimate_details.quantity
+        / td= @estimate.estimate_details.kind
+        / td= @estimate.estimate_details.unit_price
+        / td= @estimate.estimate_details.total_fee
+        / td= @estimate.estimate_details.tax
+        / td= @estimate.estimate_details.tax_amount
+        / td= @estimate.estimate_details.delivery_period
+        / td= @estimate.estimate_details.vendor.vendor_name
 
 
 
 .nav.justify-content-center
   = link_to '編集', edit_estimate_path(@estimate), class: 'btn btn-primary mr-3'
-  = link_to '削除', estimate_path(@estimate.eh_id), method: :delete,
+  = link_to '削除', estimate_path(@estimate), method: :delete,
           data: { confirm: "見積書「#{@estimate.estimate_id}」を削除します。よろしいですか？"},
           class: 'btn btn-danger'
 
