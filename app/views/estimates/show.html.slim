@@ -24,16 +24,18 @@ p= @estimate.customer_person
         th= Vendor.human_attribute_name(:vendor_name)
 
       tbody
-        td= @estimate.estimate_details.product_name
-        / td= @estimate.estimate_details.detail
-        / td= @estimate.estimate_details.quantity
-        / td= @estimate.estimate_details.kind
-        / td= @estimate.estimate_details.unit_price
-        / td= @estimate.estimate_details.total_fee
-        / td= @estimate.estimate_details.tax
-        / td= @estimate.estimate_details.tax_amount
-        / td= @estimate.estimate_details.delivery_period
-        / td= @estimate.estimate_details.vendor.vendor_name
+      - @estimate.estimate_details.each do |estimate_d|
+        tr
+          td= estimate_d.product_name
+          td= estimate_d.detail
+          td= estimate_d.quantity
+          td= estimate_d.kind
+          td= estimate_d.unit_price
+          td= estimate_d.total_fee
+          td= estimate_d.tax
+          td= estimate_d.tax_amount
+          td= estimate_d.delivery_period
+          td= estimate_d.vendor.vendor_name
 
 
 

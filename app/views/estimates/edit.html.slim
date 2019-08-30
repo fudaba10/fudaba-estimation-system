@@ -1,2 +1,6 @@
-h1 Estimates#edit
-p Find me in app/views/estimates/edit.html.slim
+h5 見積編集
+
+=render partial: 'form', locals: {estimate_h: @estimate_h, estimate_d: @estimate_d}
+
+.nav.justify-content-end
+  = link_to '戻る', estimates_path

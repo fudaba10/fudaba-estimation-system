@@ -11,7 +11,12 @@
       th= f.label :estimate_id
       td= f.text_field :estimate_id, class: 'form-control', id: 'estimate_id', readonly: true
 
-  table.table.table-bordered
+  br
+
+  button type="button" class="btn-outline-info" id="add_line" 明細行追加
+  button type="button" class="btn-outline-danger" id="del_line" 明細行削除
+
+  table.table.table-bordered#estimate_t
     thead.thead-default
     = f.fields_for :estimate_d do |d|
       tr
@@ -40,3 +45,13 @@
           td= d.number_field :vendor, class: 'form-control', id: 'vendor'
 
   = f.submit '登録', class: 'btn btn-primary'
+
+
+javascript:
+    $('#add_line').on('click', function () {
+        $('#estimate_t').append('<tr><td type="text" id="product_name" class="form-control"></td></tr>')
+    });
+
+    $('#del_line').on('click', function () {
+        alert('test');
+    });
