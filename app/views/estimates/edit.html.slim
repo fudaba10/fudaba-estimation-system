@@ -1,6 +1,64 @@
 h5 見積編集
+p= @estimate.estimate_details[0].vendor.vendor_name
+= form_with model: @estimate, url: estimates_path, local: true do |f|
+  table
+    tr
+      th <label>顧客名</label>
+      td= f.collection_select :customer_id, f.customer.customer_name, :id, :customer_name, class: 'form-control'
+    tr
+      th= f.label :customer_person
+      td= f.text_field :customer_person, class: 'form-control', id: 'customer_person'
 
-=render partial: 'form', locals: {estimate_h: @estimate_h, estimate_d: @estimate_d}
+    tr
+      th= f.label :estimate_id
+      td= f.text_field :estimate_id, class: 'form-control', id: 'estimate_id', readonly: true
+  br
+
+  button type="button" class="btn-outline-info" id="add_line" 明細行追加
+  button type="button" class="btn-outline-danger" id="del_line" 明細行削除
+
+  table.table.table-bordered#estimate_t
+    thead.thead-default
+    = f.fields_for :estimate_details do |d|
+      tr
+        th= d.label :product_name
+        th= d.label :detail
+        th= d.label :quantity
+        th= d.label :kind
+        th= d.label :unit_price
+        th= d.label :total_fee
+        th= d.label :tax
+        th= d.label :tax_amount
+        th= d.label :delivery_period
+        th <label>仕入先名</label>
+
+      tbody
+        tr
+          td= d.text_field :product_name, class: 'form-control', id: 'product_name'
+          td= d.text_field :detail, class: 'form-control', id: 'detail'
+          td= d.number_field :quantity, class: 'form-control', id: 'quantity'
+          td= d.text_field :kind, class: 'form-control', id: 'kind'
+          td= d.number_field :unit_price, class: 'form-control', id: 'unit_price'
+          td= d.number_field :total_fee, class: 'form-control', id: 'total_fee', readonly: true
+          td= d.number_field :tax, class: 'form-control', id: 'tax', readonly: true
+          td= d.number_field :tax_amount, class: 'form-control', id: 'tax_amount', readonly: true
+          td= d.text_field :delivery_period, class: 'form-control', id: 'delivery_period'
+          td= f.collection_select :vendor_id, f.vendor.vendor_name, :id, :vendor_name, class: 'form-control'
+
+  = f.submit '登録', class: 'btn btn-primary'
+
+
+javascript:
+    $('#add_line').on('click', function () {
+        $('#estimate_t').append(
+            '<tr><td>' +
+            '<input type="text" name="estimate_header[estimate_d][product_name]" id="product_name" class="form-control"></td>' +
+            '<td></td></tr>')
+    });
+
+    $('#del_line').on('click', function () {
+        $("#estimate_t tbody tr:last-child").clone(true).appendTo("#estimate_t tbody");
+    });
 
 .nav.justify-content-end
   = link_to '戻る', estimates_path

@@ -49,9 +49,12 @@
 
 javascript:
     $('#add_line').on('click', function () {
-        $('#estimate_t').append('<tr><td type="text" id="product_name" class="form-control"></td></tr>')
+        $('#estimate_t').append(
+            '<tr><td>' +
+            '<input type="text" name="estimate_header[estimate_d][product_name]" id="product_name" class="form-control"></td>' +
+            '<td></td></tr>')
     });
 
     $('#del_line').on('click', function () {
-        alert('test');
+        $("#estimate_t tbody tr:last-child").clone(true).appendTo("#estimate_t tbody");
     });

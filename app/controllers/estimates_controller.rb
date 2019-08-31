@@ -63,8 +63,9 @@ class EstimatesController < ApplicationController
   end
 
   def edit
-    @estimate_h = EstimateHeader.find(params[:id])
-    @estimate_d = EstimateHeader.includes(:estimate_details).where(estimate_header_id: params[:id])
+    @estimate = EstimateHeader.includes([{estimate_details: :vendor}, :customer]).find(params[:id])
+    # @estimate_h = EstimateHeader.find(params[:id])
+    # @estimate_d = EstimateHeader.includes(:estimate_details).where(estimate_header_id: params[:id])
   end
 
   def update
@@ -84,7 +85,6 @@ class EstimatesController < ApplicationController
     estimate_d.tax = estimate_d.total_fee * 0.1
     estimate_d.tax_amount = estimate_d.total_fee + estimate_d.tax
     estimate_d.vendor = Vendor.find(ed_param[:vendor].to_i)
-    estimate_d.estimate_detail_id = 1
 
     estimate.save
     estimate_d.save
