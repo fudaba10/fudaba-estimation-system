@@ -1,8 +1,8 @@
-= form_with model: estimate_h, url: estimates_path, local: true do |f|
+= form_with model: @estimate, url: estimates_path, local: true do |f|
   table
     tr
-      th= f.label :customer
-      td= f.text_field :customer, class: 'form-control', id: 'customer'
+      th <label>顧客名</label>
+      td= f.collection_select :customer_id, Customer.where(is_deleted: false).order(id: :asc), :id, :customer_name, {prompt: ""}, class: 'form-control'
     tr
       th= f.label :customer_person
       td= f.text_field :customer_person, class: 'form-control', id: 'customer_person'
@@ -18,7 +18,7 @@
 
   table.table.table-bordered#estimate_t
     thead.thead-default
-    = f.fields_for :estimate_d do |d|
+    = f.fields_for :estimate_details do |d|
       tr
         th= d.label :product_name
         th= d.label :detail
@@ -29,8 +29,7 @@
         th= d.label :tax
         th= d.label :tax_amount
         th= d.label :delivery_period
-        th= d.label :vendor
-
+        th <label>仕入先名</label>
       tbody
         tr
           td= d.text_field :product_name, class: 'form-control', id: 'product_name'
@@ -42,7 +41,7 @@
           td= d.number_field :tax, class: 'form-control', id: 'tax', readonly: true
           td= d.number_field :tax_amount, class: 'form-control', id: 'tax_amount', readonly: true
           td= d.text_field :delivery_period, class: 'form-control', id: 'delivery_period'
-          td= d.number_field :vendor, class: 'form-control', id: 'vendor'
+          td= d.collection_select :vendor_id, Vendor.where(is_deleted: false).order(id: :asc), :id, :vendor_name, {prompt: ""}, class: 'form-control'
 
   = f.submit '登録', class: 'btn btn-primary'
 

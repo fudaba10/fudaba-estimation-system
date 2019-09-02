@@ -8,8 +8,8 @@ class EstimatesController < ApplicationController
   end
 
   def new
-    @estimate_h = EstimateHeader.new
-    @estimate_d = EstimateDetail.new
+    @estimate = EstimateHeader.new
+    @estimate.estimate_details.build
   end
 
   def create
@@ -18,7 +18,7 @@ class EstimatesController < ApplicationController
     @estimate = EstimateHeader.new
     eh_param = estimate_params
     @estimate.employee = current_user
-    @estimate.customer = Customer.find(eh_param[:customer].to_i)
+    @estimate.customer = Customer.find(eh_param[:customer_id].to_i)
     @estimate.customer_person = eh_param[:customer_person]
     # TODO Header:id が存在しない場合、1で登録する。
     eh_id = EstimateHeader.last
@@ -30,10 +30,11 @@ class EstimatesController < ApplicationController
     @estimate.estimate_id =
         @estimate.customer.customer_initial + d.strftime + '−' + eh_id
 
-    @estimate_d = EstimateDetail.new
 
     if @estimate.save
-      ed_param = estimate_params[:estimate_d]
+      @estimate_d = EstimateDetail.new
+      ed_param = estimate_params[:estimate_details_attributes]
+
       @estimate_d.product_name = ed_param[:product_name]
       @estimate_d.detail = ed_param[:detail]
       @estimate_d.quantity = ed_param[:quantity].to_i
@@ -42,7 +43,7 @@ class EstimatesController < ApplicationController
       @estimate_d.total_fee = @estimate_d.quantity * @estimate_d.unit_price
       @estimate_d.tax = @estimate_d.total_fee * 0.1
       @estimate_d.tax_amount = @estimate_d.total_fee + @estimate_d.tax
-      @estimate_d.vendor = Vendor.find(ed_param[:vendor].to_i)
+      @estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
       @estimate_d.estimate_header_id = EstimateHeader.last[:id]
       @estimate_d.estimate_detail_id = 1
 
@@ -105,8 +106,8 @@ class EstimatesController < ApplicationController
 
   def estimate_params
     params.require(:estimate_header).permit(
-        :customer, :customer_person, :estimate_id,
-        estimate_d: [:product_name, :detail, :quantity, :kind, :unit_price, :delivery_period, :vendor])
+        :customer_id, :customer_person, :estimate_id,
+        estimate_details_attributes: [:product_name, :detail, :quantity, :kind, :unit_price, :delivery_period, :vendor_id])
   end
 
 end
