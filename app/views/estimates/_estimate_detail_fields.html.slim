@@ -1,0 +1,15 @@
+tbody
+  tr.nested-fields
+    td
+    td= f.text_field :product_name, class: 'form-control', id: 'product_name'
+    td= f.text_field :detail, class: 'form-control', id: 'detail'
+    td= f.number_field :quantity, class: 'form-control', id: 'quantity'
+    td= f.text_field :kind, class: 'form-control', id: 'kind'
+    td= f.number_field :unit_price, class: 'form-control', id: 'unit_price'
+    td= f.number_field :total_fee, class: 'form-control', id: 'total_fee', readonly: true
+    td= f.number_field :tax, class: 'form-control', id: 'tax', readonly: true
+    td= f.number_field :tax_amount, class: 'form-control', id: 'tax_amount', readonly: true
+    td= f.text_field :delivery_period, class: 'form-control', id: 'delivery_period'
+    td= f.collection_select :vendor_id, Vendor.where(is_deleted: false).order(id: :asc), :id, :vendor_name, {prompt: ""}, class: 'form-control'
+    td= link_to_remove_association '行削除', f, class: "btn-outline-danger"
+

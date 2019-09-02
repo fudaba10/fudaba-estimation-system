@@ -30,19 +30,17 @@ class EstimatesController < ApplicationController
     @estimate.estimate_id =
         @estimate.customer.customer_initial + d.strftime + '−' + eh_id
 
-
     if @estimate.save
       @estimate_d = EstimateDetail.new
-      ed_param = estimate_params[:estimate_details_attributes]
-
+      ed_param = estimate_params[:estimate_details_attributes]["0"]
       @estimate_d.product_name = ed_param[:product_name]
       @estimate_d.detail = ed_param[:detail]
       @estimate_d.quantity = ed_param[:quantity].to_i
       @estimate_d.kind = ed_param[:kind]
       @estimate_d.unit_price = ed_param[:unit_price].to_i
-      @estimate_d.total_fee = @estimate_d.quantity * @estimate_d.unit_price
-      @estimate_d.tax = @estimate_d.total_fee * 0.1
-      @estimate_d.tax_amount = @estimate_d.total_fee + @estimate_d.tax
+      @estimate_d.total_fee = ed_param[:total_fee].to_i
+      @estimate_d.tax = ed_param[:tax].to_i
+      @estimate_d.tax_amount = ed_param[:tax_amount].to_i
       @estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
       @estimate_d.estimate_header_id = EstimateHeader.last[:id]
       @estimate_d.estimate_detail_id = 1
