@@ -71,7 +71,7 @@ ja:
                     delivery_period: 納期
                     vendor_id: 仕入先ID
                     estimate_header_id: 見積書ID
-                    estimate_detail_id: 見積書明細NO
+                    estimate_detail_id: 明細NO
                     created_at: 登録日時
                     updated_at: 更新日時
      date:

@@ -14,7 +14,10 @@ class EstimatesController < ApplicationController
 
   def create
     d = Date.today
-    d.strftime("%y%m%d")
+    year = d.strftime("%Y")
+    month = d.strftime("%m")
+    day = d.strftime("%d")
+
     @estimate = EstimateHeader.new
     eh_param = estimate_params
     @estimate.employee = current_user
@@ -28,8 +31,7 @@ class EstimatesController < ApplicationController
        eh_id = (EstimateHeader.last[:id] +1).to_s
      end
     @estimate.estimate_id =
-        @estimate.customer.customer_initial + d.strftime + '−' + eh_id
-
+        @estimate.customer.customer_initial + year + month + day + '−' + eh_id
     if @estimate.save
       eh_param[:estimate_details_attributes].each do |index, ed_param|
         @estimate_d = EstimateDetail.new
@@ -41,9 +43,10 @@ class EstimatesController < ApplicationController
         @estimate_d.total_fee = ed_param[:total_fee].to_i
         @estimate_d.tax = ed_param[:tax].to_i
         @estimate_d.tax_amount = ed_param[:tax_amount].to_i
+        @estimate_d.delivery_period = ed_param[:delivery_period]
         @estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
-        @estimate_d.estimate_header_id = EstimateHeader.last[:id]
-        @estimate_d.estimate_detail_id = 1
+        @estimate_d.estimate_header_id = @estimate.id
+        @estimate_d.estimate_detail_id = ed_param[:estimate_detail_id].to_i
         @estimate_d.save
       end
       redirect_to estimates_url, notice: "見積書「#{@estimate.estimate_id}」を登録しました"
@@ -59,8 +62,6 @@ class EstimatesController < ApplicationController
 
   def edit
     @estimate = EstimateHeader.includes([{estimate_details: :vendor}, :customer]).find(params[:id])
-    # @estimate_h = EstimateHeader.find(params[:id])
-    # @estimate_d = EstimateHeader.includes(:estimate_details).where(estimate_header_id: params[:id])
   end
 
   def update
@@ -101,7 +102,10 @@ class EstimatesController < ApplicationController
   def estimate_params
     params.require(:estimate_header).permit(
         :customer_id, :customer_person, :estimate_id,
-        estimate_details_attributes: [:product_name, :detail, :quantity, :kind, :unit_price, :delivery_period, :vendor_id])
+        estimate_details_attributes: [:estimate_detail_id, :product_name, :detail,
+                                      :quantity, :kind, :unit_price, :total_fee,
+                                      :tax, :tax_amount, :delivery_period,
+                                      :vendor_id])
   end
 
 end

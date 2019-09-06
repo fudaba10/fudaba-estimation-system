@@ -2,7 +2,7 @@
   table
     tr
       th <label>顧客名</label>
-      td= f.collection_select :customer_id, Customer.where(is_deleted: false).order(id: :asc), :id, :customer_name, {prompt: ""}, class: 'form-control'
+      td= f.collection_select :customer_id, Customer.where(is_deleted: false).order(id: :asc), :id, :customer_name, class: 'form-control'
     tr
       th= f.label :customer_person
       td= f.text_field :customer_person, class: 'form-control', id: 'customer_person'
@@ -13,7 +13,8 @@
 
   br
 
-  = link_to_add_association '行追加', f, :estimate_details, class:"btn-outline-info",
+  = link_to_add_association '行追加', f, :estimate_details,
+          class: 'btn-outline-info', id: 'add_row',
       data: {association_insertion_node: '#detail-association-insertion-point',
       association_insertion_method: 'append' }
 
@@ -40,17 +41,60 @@
   = f.submit '登録', class: 'btn btn-primary'
 
 javascript:
-    function price_calc() {
-        var total_fee = $('#quantity').val() * $('#unit_price').val();
-        var tax = total_fee * 0.1
-        var tax_amount = total_fee + tax;
-        $('#total_fee').val(total_fee);
-        $('#tax').val(Math.ceil(tax));
-        $('#tax_amount').val(Math.ceil(tax_amount));
-    }
+    var rows = 1;
+    var total_fee = 0;
+    var tax = 0;
+    var tax_amount = 0;
+
+    $(document).ready(function () {
+        $("#estimate_detail_id").val(1);
+        setId();
+    });
 
     $(function () {
-        $('input[type="number"]').on('keyup change', function () {
-            price_calc();
+        $(document).on('keyup change','.quantity,.unit_price', function () {
+            total_fee = $('#quantity').val() * $('#unit_price').val();
+            tax = total_fee * 0.1;
+            tax_amount = total_fee + tax;
+            $('#total_fee').val(total_fee);
+            $('#tax').val(Math.ceil(tax));
+            $('#tax_amount' ).val(Math.ceil(tax_amount));
+            rows = $("#detail-association-insertion-point tbody").children().length;
+          for (var i = 1; i <= rows; i++) {
+            total_fee = $('#quantity' + i).val() * $('#unit_price' + i).val();
+            tax = total_fee * 0.1;
+            tax_amount = total_fee + tax;
+            $('#total_fee' + i).val(total_fee);
+            $('#tax' + i).val(Math.ceil(tax));
+            $('#tax_amount' + i).val(Math.ceil(tax_amount));
+          }
         });
     });
+
+    $(function () {
+        $(document).on("click", "#add_row", function () {
+            setId();
+        });
+    });
+
+    //IDをセット
+    function setId() {
+        $(".estimate_detail_id").each(function (index) {
+            $(this).attr("id", "estimate_detail_id" + (index + 1)).val(index + 1);
+        });
+        $(".quantity").each(function (index) {
+            $(this).attr("id", "quantity" + (index + 1));
+        });
+        $(".unit_price").each(function (index) {
+            $(this).attr("id", "unit_price" + (index + 1));
+        });
+        $(".total_fee").each(function (index) {
+            $(this).attr("id", "total_fee" + (index + 1));
+        });
+        $(".tax").each(function (index) {
+            $(this).attr("id", "tax" + (index + 1));
+        });
+        $(".tax_amount").each(function (index) {
+            $(this).attr("id", "tax_amount" + (index + 1));
+        });
+    }
