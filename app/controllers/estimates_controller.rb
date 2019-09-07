@@ -67,24 +67,34 @@ class EstimatesController < ApplicationController
   def update
     estimate = EstimateHeader.find(params[:id])
     eh_param = estimate_params
-    estimate.customer = Customer.find(eh_param[:customer].to_i)
+    estimate.customer = Customer.find(eh_param[:customer_id].to_i)
     estimate.customer_person = eh_param[:customer_person]
-
-    estimate_d = EstimateDetail.where(estimate_header_id: params[:id])
-    ed_param = estimate_params[:estimate_d]
-    estimate_d.product_name = ed_param[:product_name]
-    estimate_d.detail = ed_param[:detail]
-    estimate_d.quantity = ed_param[:quantity].to_i
-    estimate_d.kind = ed_param[:kind]
-    estimate_d.unit_price = ed_param[:unit_price].to_i
-    estimate_d.total_fee = estimate_d.quantity * estimate_d.unit_price
-    estimate_d.tax = estimate_d.total_fee * 0.1
-    estimate_d.tax_amount = estimate_d.total_fee + estimate_d.tax
-    estimate_d.vendor = Vendor.find(ed_param[:vendor].to_i)
-
     estimate.save
-    estimate_d.save
-    redirect_to estimates_url, notice: "見積書NO「#{estimate.estimate_id}」を更新しました。"
+
+    d_params = eh_param[:estimate_details_attributes]
+    d_params.each do |index, ed_param|
+      if ed_param[:id].blank?
+        estimate_d = EstimateDetail.new
+      else
+        estimate_d = EstimateDetail.find(ed_param[:id])
+      end
+      estimate_d.product_name = ed_param[:product_name]
+      estimate_d.detail = ed_param[:detail]
+      estimate_d.quantity = ed_param[:quantity].to_i
+      estimate_d.kind = ed_param[:kind]
+      estimate_d.unit_price = ed_param[:unit_price].to_i
+      estimate_d.total_fee = ed_param[:total_fee].to_i
+      estimate_d.tax = ed_param[:tax].to_i
+      estimate_d.tax_amount = ed_param[:tax_amount].to_i
+      estimate_d.delivery_period = ed_param[:delivery_period]
+      estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
+      estimate_d.estimate_header_id = estimate.id
+      estimate_d.estimate_detail_id = ed_param[:estimate_detail_id].to_i
+
+      estimate_d.save
+    end
+      redirect_to estimates_url, notice: "見積書「#{estimate.estimate_id}」を更新しました。"
+
   end
 
 
@@ -102,7 +112,7 @@ class EstimatesController < ApplicationController
   def estimate_params
     params.require(:estimate_header).permit(
         :customer_id, :customer_person, :estimate_id,
-        estimate_details_attributes: [:estimate_detail_id, :product_name, :detail,
+        estimate_details_attributes: [:id, :estimate_detail_id, :product_name, :detail,
                                       :quantity, :kind, :unit_price, :total_fee,
                                       :tax, :tax_amount, :delivery_period,
                                       :vendor_id])

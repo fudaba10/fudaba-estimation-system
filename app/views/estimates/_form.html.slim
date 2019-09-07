@@ -1,4 +1,12 @@
-= form_with model: @estimate, url: estimates_path, local: true do |f|
+- action = controller.action_name
+- if action == "new"
+  - path = estimates_path
+- else
+  - path = estimate_path(@estimate)
+
+
+= form_with model: @estimate, url: path, local: true do |f|
+
   table
     tr
       th <label>顧客名</label>
@@ -38,7 +46,7 @@
         = f.fields_for :estimate_details do |d|
           = render 'estimate_detail_fields', f: d
 
-  = f.submit '登録', class: 'btn btn-primary'
+  = f.submit nil, class: 'btn btn-primary'
 
 javascript:
     var rows = 1;
