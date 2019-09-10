@@ -1,3 +1,8 @@
+- if vendor.errors.present?
+  ul#error_explanation
+    - vendor.errors.full_messages.each do |message|
+      li = message
+
 form
 = form_with model: vendor, local: true do |f|
   table.table.table-bordered

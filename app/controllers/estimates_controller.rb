@@ -71,8 +71,7 @@ class EstimatesController < ApplicationController
     estimate.customer_person = eh_param[:customer_person]
     estimate.save
 
-    d_params = eh_param[:estimate_details_attributes]
-    d_params.each do |index, ed_param|
+    eh_param[:estimate_details_attributes].each do |index, ed_param|
       if ed_param[:id].blank?
         estimate_d = EstimateDetail.new
       else
@@ -90,11 +89,9 @@ class EstimatesController < ApplicationController
       estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
       estimate_d.estimate_header_id = estimate.id
       estimate_d.estimate_detail_id = ed_param[:estimate_detail_id].to_i
-
       estimate_d.save
     end
       redirect_to estimates_url, notice: "見積書「#{estimate.estimate_id}」を更新しました。"
-
   end
 
 

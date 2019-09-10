@@ -1,9 +1,13 @@
 - action = controller.action_name
-- if action == "new"
+- if action == "new" or action == "show"
   - path = estimates_path
 - else
   - path = estimate_path(@estimate)
 
+- if @estimate.errors.present?
+  ul#error_explanation
+    - @estimate.errors.full_messages.each do |message|
+      li = message
 
 = form_with model: @estimate, url: path, local: true do |f|
 
@@ -57,6 +61,11 @@ javascript:
     $(document).ready(function () {
         $("#estimate_detail_id").val(1);
         setId();
+        rows = $("#detail-association-insertion-point tbody").children().length;
+        console.log(rows);
+        if (rows == 1) {
+            $('#del_row').hide();
+        }
     });
 
     $(function () {

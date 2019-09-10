@@ -1,3 +1,8 @@
+- if customer.errors.present?
+  ul#error_explanation
+    - customer.errors.full_messages.each do |message|
+      li = message
+
 form
 = form_with model: customer,  local: true do |f|
   table.table.table-bordered

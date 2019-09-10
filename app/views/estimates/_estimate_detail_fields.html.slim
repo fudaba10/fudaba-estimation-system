@@ -10,4 +10,4 @@ tr.nested-fields
     td= f.number_field :tax_amount, class: 'form-control tax_amount', id: 'tax_amount', readonly: true
     td= f.text_field :delivery_period, class: 'form-control', id: 'delivery_period'
     td= f.collection_select :vendor_id, Vendor.where(is_deleted: false).order(id: :asc), :id, :vendor_name, class: 'form-control'
-    td= link_to_remove_association '行削除', f, class: "btn-outline-danger"
+    td= link_to_remove_association '行削除', f, class: "btn-outline-danger", id: 'del_row'

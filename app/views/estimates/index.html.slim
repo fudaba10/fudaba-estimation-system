@@ -1,6 +1,5 @@
 
-h1 見積一覧
-= link_to '新規登録', new_estimate_path, class: 'btn btn-primary'
+h3 見積一覧
 
 h5 【検索条件入力】
 = search_form_for @q, url: estimates_path, class: 'mb-5' do |f|
@@ -34,8 +33,9 @@ h5 【検索条件入力】
   /     = f.search_field :estimate_details_vendor_id_cont, class: 'form-control'
 
   .form-group
-  = f.submit class: 'btn btn-outline-primary'
+  = f.submit class: 'btn btn-outline-secondary'
 
+= link_to '新規登録', new_estimate_path, class: 'btn btn-success'
 br
 .mb-3
   table.table.table-bordered.table-hover.index-group

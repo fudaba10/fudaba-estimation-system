@@ -11,9 +11,9 @@ h5 【検索条件入力】
     .col-sm-10
       = f.search_field :vendor_name_kana_cont, class: 'form-control'
     .form-group
-      = f.submit class: 'btn btn-outline-primary'
+      = f.submit class: 'btn btn-outline-secondary'
 
-= link_to '新規登録', new_vendor_path, class: 'btn btn-primary'
+= link_to '新規登録', new_vendor_path, class: 'btn btn-success'
 br
 .mb-3
   table.table.table-bordered.table-hover
