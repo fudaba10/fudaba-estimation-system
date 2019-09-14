@@ -1,15 +1,13 @@
 - action = controller.action_name
-- if action == "new" or action == "show"
+- if action == "new" or action == "show" or action == "create"
   - path = estimates_path
+  - method = "post"
 - else
   - path = estimate_path(@estimate)
+  - method = "patch"
+p= action
 
-- if @estimate.errors.present?
-  ul#error_explanation
-    - @estimate.errors.full_messages.each do |message|
-      li = message
-
-= form_with model: @estimate, url: path, local: true do |f|
+= form_with model: @estimate, url: path, method: method, local: true do |f|
 
   table
     tr

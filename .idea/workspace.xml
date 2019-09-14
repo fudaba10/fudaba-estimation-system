@@ -4,15 +4,10 @@
     <list default="true" id="decbcb17-8b54-499d-a4d8-a42b7bb855f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/estimates_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/estimates_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/employees/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/employees/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/customers/_form.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/customers/_form.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/customers/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/customers/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/estimates/_estimate_detail_fields.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/estimates/_estimate_detail_fields.html.slim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/estimates/_form.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/estimates/_form.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/estimates/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/estimates/index.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/sessions/new.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/vendors/_form.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/vendors/_form.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/vendors/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/vendors/index.html.slim" afterDir="false" />
+    </list>
+    <list id="5c09d596-13f6-4db6-8330-7a72d78c13e8" name="clipboardPatchFile" comment="">
+      <change beforePath="$PROJECT_DIR$/app/views/estimates/_form.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/estimates/_form.html.slim" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,20 +74,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/estimates_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="30" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="30" />
+            <state relative-caret-position="152">
+              <caret line="52" selection-start-line="36" selection-end-line="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/estimates/_form.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+            <state relative-caret-position="247">
+              <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/estimates/_estimate_detail_fields.html.slim">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -100,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/estimates/index.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+            <state relative-caret-position="76">
+              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -161,18 +165,32 @@
         <option value="$PROJECT_DIR$/config/locales/ja.yml" />
         <option value="$PROJECT_DIR$/app/views/estimates/new.html.slim" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/53752daa-ef2c-43ab-9ae7-e4c1221d92c1/console_1.sql" />
-        <option value="$PROJECT_DIR$/app/controllers/estimates_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/estimates/index.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/estimates/_estimate_detail_fields.html.slim" />
         <option value="$PROJECT_DIR$/app/views/customers/_form.html.slim" />
         <option value="$PROJECT_DIR$/app/views/vendors/_form.html.slim" />
         <option value="$PROJECT_DIR$/app/views/sessions/new.html.slim" />
         <option value="$PROJECT_DIR$/app/views/customers/index.html.slim" />
         <option value="$PROJECT_DIR$/app/views/vendors/index.html.slim" />
         <option value="$PROJECT_DIR$/app/views/admin/employees/index.html.slim" />
+        <option value="$PROJECT_DIR$/app/views/estimates/_estimate_detail_fields.html.slim" />
         <option value="$PROJECT_DIR$/app/views/estimates/_form.html.slim" />
+        <option value="$PROJECT_DIR$/app/controllers/estimates_controller.rb" />
       </list>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/app/views/estimates/_form.html.slim">
+      <ranges>
+        <range start1="1" end1="2" start2="1" end2="2" changelist="decbcb17-8b54-499d-a4d8-a42b7bb855f7" />
+        <range start1="5" end1="6" start2="5" end2="6" changelist="decbcb17-8b54-499d-a4d8-a42b7bb855f7" />
+        <range start1="10" end1="10" start2="10" end2="15" changelist="decbcb17-8b54-499d-a4d8-a42b7bb855f7" />
+        <range start1="60" end1="60" start2="65" end2="73" changelist="5c09d596-13f6-4db6-8330-7a72d78c13e8" />
+        <range start1="63" end1="68" start2="76" end2="77" changelist="5c09d596-13f6-4db6-8330-7a72d78c13e8" />
+        <range start1="94" end1="94" start2="103" end2="109" changelist="5c09d596-13f6-4db6-8330-7a72d78c13e8" />
+        <range start1="98" end1="98" start2="113" end2="114" changelist="5c09d596-13f6-4db6-8330-7a72d78c13e8" />
+        <range start1="99" end1="100" start2="115" end2="120" changelist="5c09d596-13f6-4db6-8330-7a72d78c13e8" />
+      </ranges>
+    </file>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -194,8 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,7 +234,7 @@
               <item name="fudaba_mitsumori" type="b2602c69:ProjectViewProjectNode" />
               <item name="fudaba_mitsumori" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fudaba_mitsumori" type="b2602c69:ProjectViewProjectNode" />
@@ -244,6 +260,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -385,6 +403,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="decbcb17-8b54-499d-a4d8-a42b7bb855f7" name="Default Changelist" comment="" />
+      <changelist id="5c09d596-13f6-4db6-8330-7a72d78c13e8" name="clipboardPatchFile" comment="" />
       <created>1565872928409</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -413,7 +432,11 @@
       <workItem from="1567844717771" duration="11752000" />
       <workItem from="1568021156591" duration="749000" />
       <workItem from="1568038508628" duration="2134000" />
-      <workItem from="1568068283714" duration="3917000" />
+      <workItem from="1568068283714" duration="11399000" />
+      <workItem from="1568180498710" duration="12836000" />
+      <workItem from="1568359008017" duration="7604000" />
+      <workItem from="1568413478128" duration="1314000" />
+      <workItem from="1568446811148" duration="4816000" />
     </task>
     <task id="LOCAL-00001" summary="Create Estimate(EstimateHeader,EstimateDetail)">
       <created>1566387296487</created>
@@ -457,11 +480,18 @@
       <option name="project" value="LOCAL" />
       <updated>1567867307013</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Edit Estimate(controller,new,edit)">
+      <created>1568076935896</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1568076935896</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282983000" />
+    <option name="totallyTimeSpent" value="317035000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -476,13 +506,13 @@
     <frame x="0" y="23" width="1440" height="801" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49852508" visible="true" weight="0.17238913" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49852508" visible="true" weight="0.18097281" />
       <window_info id="Structure" order="1" sideWeight="0.5014749" side_tool="true" weight="0.1629393" />
       <window_info id="Favorites" order="2" sideWeight="0.5014749" side_tool="true" weight="0.1629393" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946752" weight="0.34507772" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6638054" visible="true" weight="0.3822285" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.63733906" weight="0.4047955" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4892704" visible="true" weight="0.4781382" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6359084" weight="0.4047955" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49893504" weight="0.32970297" />
@@ -490,12 +520,12 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49946752" weight="0.32871288" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.47816828" side_tool="true" weight="0.32970297" />
-      <window_info anchor="bottom" x="1714" y="514" width="1331" height="367" id="Terminal" order="11" sideWeight="0.33619457" side_tool="true" visible="true" weight="0.3822285" />
+      <window_info anchor="bottom" x="1714" y="514" width="1331" height="367" id="Terminal" order="11" sideWeight="0.5107296" side_tool="true" visible="true" weight="0.4781382" />
       <window_info anchor="bottom" id="Database Console" order="12" sideWeight="0.75107294" weight="0.38363892" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.20529328" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17238913" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,16 +538,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Edit Estimate(controller,new,edit)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fudaba_mitsumori@Development__fudaba_mitsumori.rcov" NAME="Development: fudaba_mitsumori Coverage Results" MODIFIED="1568068313318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fudaba_mitsumori" />
+    <SUITE FILE_PATH="coverage/fudaba_mitsumori@Development__fudaba_mitsumori.rcov" NAME="Development: fudaba_mitsumori Coverage Results" MODIFIED="1568450857950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fudaba_mitsumori" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20190820140453_rename_type_column_to_estimate_details.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/vendors/new.html.slim">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -657,24 +680,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://53752daa-ef2c-43ab-9ae7-e4c1221d92c1/database/fudaba_mitsumori_development/schema/public/table/customers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/estimates/edit.html.slim">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://53752daa-ef2c-43ab-9ae7-e4c1221d92c1/database/fudaba_mitsumori_development/schema/public/table/estimate_headers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -692,20 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://53752daa-ef2c-43ab-9ae7-e4c1221d92c1/database/fudaba_mitsumori_development/schema/public/table/estimate_details">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/ja.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="74" column="36" lean-forward="true" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -720,38 +715,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/customer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="42" lean-forward="true" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/estimate_detail.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/estimate_header.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/estimates/_estimate_detail_fields.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -837,13 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/estimates/index.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/customers_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -851,17 +811,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/estimates_controller.rb">
+    <entry file="das://53752daa-ef2c-43ab-9ae7-e4c1221d92c1/database/fudaba_mitsumori_development/schema/public/table/estimate_details">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/actionpack-5.2.3/lib/action_controller/metal/strong_parameters.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="30" />
+        <state relative-caret-position="132">
+          <caret line="337" selection-start-line="337" selection-end-line="337" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/ja.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://53752daa-ef2c-43ab-9ae7-e4c1221d92c1/database/fudaba_mitsumori_development/schema/public/table/estimate_headers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://53752daa-ef2c-43ab-9ae7-e4c1221d92c1/database/fudaba_mitsumori_development/schema/public/table/customers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/estimate_detail.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/customer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/estimate_header.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/estimates/index.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/estimates/_estimate_detail_fields.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/estimates/_form.html.slim">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/estimates_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+          <caret line="52" selection-start-line="36" selection-end-line="52" />
         </state>
       </provider>
     </entry>

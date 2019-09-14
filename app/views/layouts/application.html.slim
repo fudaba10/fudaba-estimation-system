@@ -21,4 +21,7 @@ html
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice
+      - if flash.alert.present?
+        - flash.alert.each do |msg|
+          .alert.alert-warning= msg
       = yield
