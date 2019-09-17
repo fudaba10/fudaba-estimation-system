@@ -5,7 +5,6 @@
 - else
   - path = estimate_path(@estimate)
   - method = "patch"
-p= action
 
 = form_with model: @estimate, url: path, method: method, local: true do |f|
 
@@ -28,23 +27,19 @@ p= action
       data: {association_insertion_node: '#detail-association-insertion-point',
       association_insertion_method: 'append' }
 
-  table.table.table-bordered#detail-association-insertion-point
-    thead.thead-default
-      thead
-        tr
-          th= EstimateDetail.human_attribute_name(:estimate_detail_id)
-          th= EstimateDetail.human_attribute_name(:product_name)
-          th= EstimateDetail.human_attribute_name(:detail)
-          th= EstimateDetail.human_attribute_name(:quantity)
-          th= EstimateDetail.human_attribute_name(:kind)
-          th= EstimateDetail.human_attribute_name(:unit_price)
-          th= EstimateDetail.human_attribute_name(:total_fee)
-          th= EstimateDetail.human_attribute_name(:tax)
-          th= EstimateDetail.human_attribute_name(:tax_amount)
-          th= EstimateDetail.human_attribute_name(:delivery_period)
-          th <label>仕入先名</label>
-          th
-      tbody
+  table.table.table-bordered.table-sm#detail-association-insertion-point
+    thead.thead-dark
+      tr
+        th= EstimateDetail.human_attribute_name(:estimate_detail_id)
+        th <label>商品名/型式・詳細</label>
+        th= EstimateDetail.human_attribute_name(:quantity)
+        th= EstimateDetail.human_attribute_name(:kind)
+        th= EstimateDetail.human_attribute_name(:unit_price)
+        th <label>合計/税額/税込金額</label>
+        th= EstimateDetail.human_attribute_name(:delivery_period)
+        th <label>仕入先名</label>
+        th
+
         = f.fields_for :estimate_details do |d|
           = render 'estimate_detail_fields', f: d
 

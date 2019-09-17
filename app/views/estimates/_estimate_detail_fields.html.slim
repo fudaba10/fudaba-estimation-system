@@ -1,13 +1,16 @@
-tr.nested-fields
-    td= f.number_field :estimate_detail_id, class: 'form-control estimate_detail_id', id: 'estimate_detail_id', readonly: true
-    td= f.text_field :product_name, class: 'form-control', id: 'product_name'
-    td= f.text_field :detail, class: 'form-control', id: 'detail'
-    td= f.number_field :quantity, class: 'form-control quantity', id: 'quantity'
-    td= f.text_field :kind, class: 'form-control', id: 'kind'
-    td= f.number_field :unit_price, class: 'form-control unit_price', id: 'unit_price'
+tbody.nested-fields
+  tr
+    td rowspan="3"= f.number_field :estimate_detail_id, class: 'form-control estimate_detail_id', id: 'estimate_detail_id', readonly: true
+    td= f.text_field :product_name, class: 'form-control product_name', id: 'product_name'
+    td rowspan="3"= f.number_field :quantity, class: 'form-control quantity', id: 'quantity'
+    td rowspan="3"== f.text_field :kind, class: 'form-control kind', id: 'kind'
+    td rowspan="3"= f.number_field :unit_price, class: 'form-control unit_price', id: 'unit_price'
     td= f.number_field :total_fee, class: 'form-control total_fee', id: 'total_fee', readonly: true
+    td rowspan="3"== f.text_field :delivery_period, class: 'form-control delivery_period', id: 'delivery_period'
+    td rowspan="3"= f.collection_select :vendor_id, Vendor.where(is_deleted: false).order(id: :asc), :id, :vendor_name, class: 'form-control'
+    td rowspan="3"= link_to_remove_association '行削除', f, class: "btn-outline-danger", id: 'del_row'
+  tr
+    td rowspan="2"= f.text_field :detail, class: 'form-control detail', id: 'detail'
     td= f.number_field :tax, class: 'form-control tax', id: 'tax', readonly: true
+  tr
     td= f.number_field :tax_amount, class: 'form-control tax_amount', id: 'tax_amount', readonly: true
-    td= f.text_field :delivery_period, class: 'form-control', id: 'delivery_period'
-    td= f.collection_select :vendor_id, Vendor.where(is_deleted: false).order(id: :asc), :id, :vendor_name, class: 'form-control'
-    td= link_to_remove_association '行削除', f, class: "btn-outline-danger", id: 'del_row'

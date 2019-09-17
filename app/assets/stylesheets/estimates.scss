@@ -1,3 +1,29 @@
-// Place all the styles related to the estimates controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//フォーム
+table#detail-association-insertion-point{
+  border-collapse: collapse;
+  cellpadding: 0;
+  cellspacing: 0;
+  width: auto;
+}
+.product_name, .detail{
+
+}
+
+.estimate_detail_id{
+  text-align: right;
+
+}
+
+.kind, .quantity, .delivery_period{
+  text-align: center;
+}
+.unit_price, .total_fee, .tax, .tax_amount{
+  text-align: right;
+}
+
+tbody.nested-fields{
+  td{
+    border-top-style: none;
+    border-bottom-style: none;
+  }
+}
