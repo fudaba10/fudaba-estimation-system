@@ -1,10 +1,17 @@
-h1 Menu
-p= "ログインユーザ：#{@current_user.employee_name}さん"
+div.login-user
+  = icon('fas', 'check')
+  = "USER：#{@current_user.employee_name}さん"
 
-p= link_to '見積', estimates_path, class: 'btn btn-info btn-lg'
+div.menu-header
+  h3 MENU
 
--if @current_user.admin?
-  p= link_to '顧客マスタ', customers_path, class: 'btn btn-info btn-lg'
-  p= link_to '仕入先マスタ', vendors_path, class: 'btn btn-info btn-lg'
-  p= link_to '社員マスタ', admin_employees_path, class: 'btn btn-info btn-lg'
+br
+div.btn-toolbar
+  div.btn-group
+    = link_to '見積書', estimates_path, class: 'btn btn-outline-info rounded-pill'
+
+    -if @current_user.admin?
+      = link_to '顧客マスタ', customers_path, class: 'btn btn-outline-info rounded-pill'
+      = link_to '仕入先マスタ', vendors_path, class: 'btn btn-outline-info rounded-pill'
+      = link_to '社員マスタ', admin_employees_path, class: 'btn btn-outline-info rounded-pill'
 

@@ -1,6 +1,9 @@
-h5 社員登録
+br
+  div.page-header
+    h5 社員登録
+
+br
+= render partial: 'form', locals: {employee: @employee}
 
 .nav.justify-content-end
   = link_to '社員一覧', admin_employees_path, class: 'nav-link'
-
-= render partial: 'form', locals: {employee: @employee}

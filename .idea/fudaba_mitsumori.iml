@@ -59,6 +59,7 @@
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, rbenv: 2.6.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, rbenv: 2.6.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.11.1, rbenv: 2.6.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="font-awesome-sass (v5.11.1, rbenv: 2.6.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, rbenv: 2.6.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hpricot (v0.8.6, rbenv: 2.6.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="html2slim (v0.2.0, rbenv: 2.6.2) [gem]" level="application" />

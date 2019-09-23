@@ -1,6 +1,8 @@
-h5 仕入先詳細
+br
+  div.page-header
+    h5 仕入先詳細
 
-table.table.table-hover
+table.table.table-hover.show-table
   tbody
     tr
       th= Vendor.human_attribute_name(:id)
@@ -41,4 +43,4 @@ table.table.table-hover
           class: 'btn btn-danger'
 
 .nav.justify-content-end
-  = link_to '戻る', vendors_path
+  = link_to '仕入先一覧', vendors_path

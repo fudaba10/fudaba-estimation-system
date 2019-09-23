@@ -1,6 +1,8 @@
-h5 社員詳細
+br
+  div.page-header
+    h5 社員詳細
 
-table.table.table-hover
+table.table.table-hover.show-table
   tbody
     tr
       th= Employee.human_attribute_name(:id)
@@ -37,4 +39,4 @@ table.table.table-hover
           class: 'btn btn-danger'
 
 .nav.justify-content-end
-  = link_to '戻る', admin_employees_path
+  = link_to '社員一覧', admin_employees_path

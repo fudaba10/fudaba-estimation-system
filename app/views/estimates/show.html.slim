@@ -1,5 +1,6 @@
-h5 見積詳細
 br
+  div.page-header
+    h5 見積詳細
 
 p= EstimateHeader.human_attribute_name(:estimate_id)
 p= @estimate.estimate_id
@@ -9,34 +10,34 @@ p= EstimateHeader.human_attribute_name(:customer_person)
 p= @estimate.customer_person
 
 .mb-3
-  table.table.table-bordered.table-hover.index-group
-    thead.thead-default
+  table.table.table-bordered.table-hover.show-table
+    thead.thead-default.thread-dark
       tr
-        th= EstimateDetail.human_attribute_name(:product_name)
-        th= EstimateDetail.human_attribute_name(:detail)
+        th= EstimateDetail.human_attribute_name(:estimate_detail_id)
+        th <label>商品名/型式・詳細</label>
         th= EstimateDetail.human_attribute_name(:quantity)
         th= EstimateDetail.human_attribute_name(:kind)
         th= EstimateDetail.human_attribute_name(:unit_price)
-        th= EstimateDetail.human_attribute_name(:total_fee)
-        th= EstimateDetail.human_attribute_name(:tax)
-        th= EstimateDetail.human_attribute_name(:tax_amount)
+        th <label>合計/税額/税込金額</label>
         th= EstimateDetail.human_attribute_name(:delivery_period)
-        th= Vendor.human_attribute_name(:vendor_name)
+        th <label>仕入先名</label>
 
       tbody
       - @estimate.estimate_details.each do |estimate_d|
         tr
-          td= estimate_d.product_name
-          td= estimate_d.detail
-          td= estimate_d.quantity
-          td= estimate_d.kind
-          td= estimate_d.unit_price
-          td= estimate_d.total_fee
-          td= estimate_d.tax
-          td= estimate_d.tax_amount
-          td= estimate_d.delivery_period
-          td= estimate_d.vendor.vendor_name
-
+          td class='estimate_detail_id' rowspan="3"= estimate_d.estimate_detail_id
+          td class='product_name' = estimate_d.product_name
+          td class='quantity' rowspan="3"= estimate_d.quantity
+          td class='kind' rowspan="3"= estimate_d.kind
+          td class='unit_price' rowspan="3"= estimate_d.unit_price
+          td class='total_fee'= estimate_d.total_fee
+          td class='delivery_period' rowspan="3"= estimate_d.delivery_period
+          td class='vendor_name' rowspan="3"= estimate_d.vendor.vendor_name
+        tr
+          td class='detail' rowspan="2"= estimate_d.detail
+          td class='tax' = estimate_d.tax
+        tr
+          td class='tax_amount' = estimate_d.tax_amount
 
 
 .nav.justify-content-center
@@ -46,4 +47,4 @@ p= @estimate.customer_person
           class: 'btn btn-danger'
 
 .nav.justify-content-end
-  = link_to '戻る', estimates_path
+  = link_to '見積書一覧', estimates_path

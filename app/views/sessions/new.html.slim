@@ -1,9 +1,8 @@
-
 = form_with scope: :session, local: true do |f|
   .form-group
-    = f.label :login_id, 'ログンID'
+    = f.label :login_id, 'ID'
     = f.text_field :login_id, class: 'form-control', id: 'session_login_id'
   .form-group
-    = f.label :password, 'パスワード'
+    = f.label :password, 'Password'
     = f.password_field :password, class: 'form-control', id: 'session_password'
-  = f.submit 'ログイン', class: 'btn btn-primary btn-lg'
+  = f.submit 'Sign in', class: 'btn btn-primary btn-lg'

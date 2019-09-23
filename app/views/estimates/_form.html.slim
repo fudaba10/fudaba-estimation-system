@@ -21,12 +21,12 @@
       td= f.text_field :estimate_id, class: 'form-control', id: 'estimate_id', readonly: true
 
   br
-
-  = link_to_add_association '行追加', f, :estimate_details,
-          class: 'btn-outline-info', id: 'add_row',
-      data: {association_insertion_node: '#detail-association-insertion-point',
-      association_insertion_method: 'append' }
-
+  div.add-row-btn
+    = link_to_add_association '行追加', f, :estimate_details,
+            class: 'btn btn-outline-info btn-sm', id: 'add_row',
+        data: {association_insertion_node: '#detail-association-insertion-point',
+        association_insertion_method: 'append' }
+  br
   table.table.table-bordered.table-sm#detail-association-insertion-point
     thead.thead-dark
       tr
@@ -42,8 +42,9 @@
 
         = f.fields_for :estimate_details do |d|
           = render 'estimate_detail_fields', f: d
-
-  = f.submit nil, class: 'btn btn-primary'
+  br
+  div.regist-btn
+    = f.submit nil, class: 'btn btn-primary'
 
 javascript:
     var rows = 1;
@@ -51,14 +52,19 @@ javascript:
     var tax = 0;
     var tax_amount = 0;
 
+    var toggleDeleteDetailLink = function () {
+        rows = $("#detail-association-insertion-point tbody").length;
+        console.log("rows = " + rows);
+        if (rows == 1) {
+            $('.del_row').hide();
+        }
+    };
+
     $(document).ready(function () {
         $("#estimate_detail_id").val(1);
+        $('#estimate_detail_id').text(1);
         setId();
-        rows = $("#detail-association-insertion-point tbody").children().length;
-        console.log(rows);
-        if (rows == 1) {
-            $('#del_row').hide();
-        }
+        toggleDeleteDetailLink();
     });
 
     $(function () {
@@ -66,17 +72,17 @@ javascript:
             total_fee = $('#quantity').val() * $('#unit_price').val();
             tax = total_fee * 0.1;
             tax_amount = total_fee + tax;
-            $('#total_fee').val(total_fee);
-            $('#tax').val(Math.ceil(tax));
-            $('#tax_amount' ).val(Math.ceil(tax_amount));
+            $('#total_fee').text(total_fee);
+            $('#tax').text(Math.ceil(tax));
+            $('#tax_amount' ).text(Math.ceil(tax_amount));
             rows = $("#detail-association-insertion-point tbody").children().length;
           for (var i = 1; i <= rows; i++) {
             total_fee = $('#quantity' + i).val() * $('#unit_price' + i).val();
             tax = total_fee * 0.1;
             tax_amount = total_fee + tax;
-            $('#total_fee' + i).val(total_fee);
-            $('#tax' + i).val(Math.ceil(tax));
-            $('#tax_amount' + i).val(Math.ceil(tax_amount));
+            $('#total_fee' + i).text(total_fee);
+            $('#tax' + i).text(Math.ceil(tax));
+            $('#tax_amount' + i).text(Math.ceil(tax_amount));
           }
         });
     });
@@ -84,13 +90,30 @@ javascript:
     $(function () {
         $(document).on("click", "#add_row", function () {
             setId();
+            toggleDeleteDetailLink();
+        });
+        $(document).on("click", ".del_row", function () {
+            console.log("行削除を押しました");
+            toggleDeleteDetailLink();
+            setTimeout(
+                setId,
+                300
+            );
         });
     });
 
     //IDをセット
     function setId() {
+        var lastId = 0;
+        var detailId = 0;
         $(".estimate_detail_id").each(function (index) {
-            $(this).attr("id", "estimate_detail_id" + (index + 1)).val(index + 1);
+            if ($(this).is(":hidden")) {
+                lastId++;
+                $(this).attr("id", "estimate_detail_id" + (index + 1)).val(lastId);
+            }else{
+                detailId++;
+                $(this).attr("id", "disp_estimate_detail_id" + (index + 1)).text(detailId);
+            }
         });
         $(".quantity").each(function (index) {
             $(this).attr("id", "quantity" + (index + 1));

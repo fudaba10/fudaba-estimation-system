@@ -46,9 +46,9 @@ class EstimatesController < ApplicationController
       estimate_d.quantity = ed_param[:quantity].to_i
       estimate_d.kind = ed_param[:kind]
       estimate_d.unit_price = ed_param[:unit_price].to_i
-      estimate_d.total_fee = ed_param[:total_fee].to_i
-      estimate_d.tax = ed_param[:tax].to_i
-      estimate_d.tax_amount = ed_param[:tax_amount].to_i
+      estimate_d.total_fee = estimate_d.quantity * estimate_d.unit_price
+      estimate_d.tax = estimate_d.total_fee * 0.1
+      estimate_d.tax_amount = estimate_d.total_fee + estimate_d.tax
       estimate_d.delivery_period = ed_param[:delivery_period]
       estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
       estimate_d.estimate_header_id = @estimate.id
@@ -98,9 +98,9 @@ class EstimatesController < ApplicationController
         estimate_d.quantity = ed_param[:quantity].to_i
         estimate_d.kind = ed_param[:kind]
         estimate_d.unit_price = ed_param[:unit_price].to_i
-        estimate_d.total_fee = ed_param[:total_fee].to_i
-        estimate_d.tax = ed_param[:tax].to_i
-        estimate_d.tax_amount = ed_param[:tax_amount].to_i
+        estimate_d.total_fee = estimate_d.quantity * estimate_d.unit_price
+        estimate_d.tax = estimate_d.total_fee * 0.1
+        estimate_d.tax_amount = estimate_d.total_fee + estimate_d.tax
         estimate_d.delivery_period = ed_param[:delivery_period]
         estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
         estimate_d.estimate_header_id = @estimate.id
@@ -138,8 +138,7 @@ class EstimatesController < ApplicationController
     params.require(:estimate_header).permit(
         :customer_id, :customer_person, :estimate_id,
         estimate_details_attributes: [:id, :estimate_detail_id, :product_name, :detail,
-                                      :quantity, :kind, :unit_price, :total_fee,
-                                      :tax, :tax_amount, :delivery_period,
+                                      :quantity, :kind, :unit_price, :delivery_period,
                                       :vendor_id, :_destroy])
   end
 

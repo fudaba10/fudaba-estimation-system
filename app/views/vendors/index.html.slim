@@ -1,6 +1,8 @@
-h4 仕入先一覧
+br
+  div.page-header
+    h5 仕入先一覧
 
-h5 【検索条件入力】
+p 【検索条件入力】
 = search_form_for @q, class: 'mb-5' do |f|
   .form-group.row
     = f.label :vendor_name_cont, '仕入先名', class: 'col-sm-2 col-form-label'
@@ -16,7 +18,7 @@ h5 【検索条件入力】
 = link_to '新規登録', new_vendor_path, class: 'btn btn-success'
 br
 .mb-3
-  table.table.table-bordered.table-hover
+  table.table.table-bordered.table-hover.index-table
     thead.thead-default
       tr
         th= Vendor.human_attribute_name(:id)
@@ -44,7 +46,9 @@ br
             td.toc= vendor.updated_at
 
             td
-              = link_to '編集', edit_vendor_path(vendor), class: 'btn btn-primary mr-3'
-              = link_to '削除', vendor, method: :delete,
-                      data: { confirm: "仕入先「#{vendor.vendor_name}」を削除します。よろしいですか？"},
-                      class: 'btn btn-danger'
+              = link_to edit_vendor_path(vendor), :method => :get do
+                = icon('fa', 'edit')
+              = link_to vendor,
+                      data: {:confirm => "仕入先「#{vendor.vendor_name}」を削除します。よろしいですか？"},
+                      :method => :delete do
+                = icon('fa', 'trash-alt')

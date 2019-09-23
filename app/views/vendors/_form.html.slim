@@ -5,7 +5,7 @@
 
 form
 = form_with model: vendor, local: true do |f|
-  table.table.table-bordered
+  table.table.table-bordered.regist-table
     tr
       .form_group
         th= f.label :vendor_name
@@ -30,5 +30,6 @@ form
       .form_group
       th= f.label :fax
       td= f.text_field :fax, class: 'form-control', id: 'fax'
-
-  = f.submit '登録', class: 'btn btn-primary'
+  br
+  div.regist-btn
+    = f.submit '登録', class: 'btn btn-primary'

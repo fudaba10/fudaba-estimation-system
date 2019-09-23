@@ -1,23 +1,70 @@
 /*
-*= require_tree .
 *= require_self
  */
 
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
-h2 {
+//各MENU見出し
+.page-header{
+  position: relative;
+  color: #333;
+  text-shadow: 0 0 5px white;
+  background: honeydew;
+  z-index: -4;
+  border-radius: 0 10px 10px;
+}
+
+.page-header :before {
+  content: "";
+  position: absolute;
+  background: aquamarine;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  left: -15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: -1;
+
+}
+//登録用テーブル
+.regist-table {
+  margin: auto;
+  width: 800px;
+  th {
+    text-align: left;
+    vertical-align: middle;
+    width: 200px;
+  }
+  td {
+    text-align: left;
+    width: 500px;
+  }
+}
+
+//登録用ボタン
+.regist-btn {
+  margin: auto;
   text-align: center;
 }
 
-//index
-th, .toc {
-  text-align: center;
-  vertical-align: middle;
+//一覧表示テーブル
+.index-table {
+  th{
+    text-align: center;
+  }
+  td{
+    text-align: center;
+  }
 }
 
+//詳細表示用テーブル
+.show-table {
+  th{
+    width: 300px;
 
-
-div.form-group {
-  text-align: center;
+  }
 }
-

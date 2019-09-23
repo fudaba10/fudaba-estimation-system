@@ -4,23 +4,31 @@
       li = message
 
 = form_with model: [:admin, @employee], local: true do |f|
-  .form-group
-    = f.label :employee_name, '社員名'
-    = f.text_field :employee_name, class: 'form-control'
-  .form-group
-    = f.label :employee_name_kana, '社員名カナ'
-    = f.text_field :employee_name_kana, class: 'form-control'
-  .form-group
-    = f.label :login_id, 'ログインID'
-    = f.text_field :login_id, class: 'form-control'
-  .form-check
-    = f.label :admin, class: 'form-check-label' do
-      =f.check_box :admin, class: 'form-check-input'
-      | 管理者権限
-  .form-group
-    = f.label :password, 'パスワード'
-    = f.password_field :password, class: 'form-control'
-  .form-group
-    = f.label :password_confirmation, 'パスワード（確認）'
-    = f.password_field :password_confirmation, class: 'form-control'
-  = f.submit '登録', class: 'btn btn-primary'
+  table.table.table-bordered.regist-table
+    tr
+      .form-group
+        th= f.label :employee_name, '社員名'
+        td= f.text_field :employee_name, class: 'form-control'
+    tr
+      .form-group
+        th= f.label :employee_name_kana, '社員名カナ'
+        td= f.text_field :employee_name_kana, class: 'form-control'
+    tr
+      .form-group
+        th= f.label :login_id, 'ログインID'
+        td= f.text_field :login_id, class: 'form-control'
+    tr
+      .form-check
+        th= f.label :admin, class: 'form-check-label'
+        td= f.check_box :admin, class: 'form-check-input'
+    tr
+      .form-group
+        th= f.label :password, 'パスワード'
+        td= f.password_field :password, class: 'form-control'
+    tr
+      .form-group
+        th= f.label :password_confirmation, 'パスワード（確認）'
+        td= f.password_field :password_confirmation, class: 'form-control'
+  br
+  div.regist-btn
+    = f.submit '登録', class: 'btn btn-primary'

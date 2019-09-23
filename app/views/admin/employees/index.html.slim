@@ -1,6 +1,8 @@
-h4 社員一覧
 br
-h5 【検索条件入力】
+  div.page-header
+    h5 社員一覧
+br
+p 【検索条件入力】
 = search_form_for @q, url: admin_employees_url, class: 'mb-5' do |f|
   .form-group.row
     = f.label :employee_name_cont, '社員名', class: 'col-sm-2 col-form-label'
@@ -16,7 +18,7 @@ h5 【検索条件入力】
 = link_to '新規登録', new_admin_employee_path, class: 'btn btn-success'
 br
 .mb-3
-  table.table.table-bordered.table-hover
+  table.table.table-bordered.table-hover.index-table
     thead.thead-default
       tr
         th= Employee.human_attribute_name(:id)
@@ -40,7 +42,9 @@ br
             td= employee.updated_at
 
             td
-              = link_to '編集', edit_admin_employee_path(employee), class: 'btn btn-primary mr-3'
-              = link_to '削除', [:admin, employee], method: :delete,
-                      data: { confirm: "社員「#{employee.employee_name}」を削除します。よろしいですか？"},
-                      class: 'btn btn-danger'
+              = link_to edit_admin_employee_path(employee), :method => :get do
+                = icon('fa', 'edit')
+              = link_to [:admin, employee],
+                      data: {:confirm => "社員「#{employee.employee_name}」を削除します。よろしいですか？"},
+                      :method => :delete do
+                = icon('fa', 'trash-alt')

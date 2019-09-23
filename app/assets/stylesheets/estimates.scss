@@ -1,29 +1,52 @@
-//フォーム
+//登録画面
 table#detail-association-insertion-point{
+  margin: auto;
+  width: 1000px;
   border-collapse: collapse;
   cellpadding: 0;
   cellspacing: 0;
-  width: auto;
+}
+
+.regist-btn{
+  text-align: center;
+}
+.add-row-btn {
+  text-align: right;
 }
 .product_name, .detail{
 
 }
 
-.estimate_detail_id{
+.estimate_detail_id, .disp_estimate_detail_id{
+  width: 20px;
   text-align: right;
 
 }
 
-.kind, .quantity, .delivery_period{
+.quantity, .delivery_period, .vendor_name{
+  width: 90px;
+  text-align: center;
+}
+
+.kind{
+  width: 50px;
   text-align: center;
 }
 .unit_price, .total_fee, .tax, .tax_amount{
+  width: 100px;
   text-align: right;
 }
-
+.vendor_id{
+  width: 100px;
+}
 tbody.nested-fields{
   td{
     border-top-style: none;
     border-bottom-style: none;
   }
+}
+
+//一覧画面
+.estimate-index-table{
+  text-align: center;
 }
