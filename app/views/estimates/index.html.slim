@@ -1,8 +1,9 @@
 br
   div.page-header
     h5 見積書一覧
+div.search-header
+  p 検索条件入力
 
-p 【検索条件入力】
 = search_form_for @q, url: estimates_path, class: 'mb-5' do |f|
   .form-group.row
     = f.label :estimate_id_cont, '見積書NO', class: 'col-sm-2 col-form-label'
@@ -40,13 +41,14 @@ p 【検索条件入力】
 br
 .mb-3
   table.table.table-bordered.table-hover.index-table
-    thead.thead-default
+    thead.thead-default.thead-light
       tr
         th= EstimateHeader.human_attribute_name(:estimate_id)
         th= Customer.human_attribute_name(:customer_name)
         th= EstimateHeader.human_attribute_name(:customer_person)
-        th
-
+        th= EstimateHeader.human_attribute_name(:created_at)
+        th= EstimateHeader.human_attribute_name(:updated_at)
+        th 削除
 
       tbody
         - @estimates.each do |estimate|
@@ -54,11 +56,12 @@ br
             td= link_to estimate.estimate_id, estimate_path(estimate.id)
             td= estimate.customer.customer_name
             td= estimate.customer_person
-            td
-              = link_to edit_estimate_path(estimate), :method => :get do
-                = icon('fa', 'edit')
-              = link_to estimate_path(estimate),
-                      data: {:confirm => "見積書「#{estimate.estimate_id}」を削除します。よろしいですか？"},
-                      :method => :delete do
-                = icon('fa', 'trash-alt')
+            td= l(estimate.created_at, format: :long)
+            td= l(estimate.updated_at, format: :long)
+            td= link_to estimate_path(estimate),
+                    data: {:confirm => "見積書「#{estimate.estimate_id}」を削除します。よろしいですか？"},
+                    :method => :delete do
+              = icon('fa', 'trash-alt')
+            /   = link_to edit_estimate_path(estimate), :method => :get do
+            /     = icon('fa', 'edit')
 

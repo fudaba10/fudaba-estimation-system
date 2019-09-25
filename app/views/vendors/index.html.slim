@@ -2,7 +2,7 @@ br
   div.page-header
     h5 仕入先一覧
 
-p 【検索条件入力】
+p 検索条件入力
 = search_form_for @q, class: 'mb-5' do |f|
   .form-group.row
     = f.label :vendor_name_cont, '仕入先名', class: 'col-sm-2 col-form-label'
@@ -12,25 +12,23 @@ p 【検索条件入力】
     = f.label :vendor_name_kana_cont, '仕入先名カナ', class: 'col-sm-2 col-form-label'
     .col-sm-10
       = f.search_field :vendor_name_kana_cont, class: 'form-control'
-    .form-group
-      = f.submit class: 'btn btn-outline-secondary'
+  .form-group
+    = f.submit class: 'btn btn-outline-secondary'
 
 = link_to '新規登録', new_vendor_path, class: 'btn btn-success'
 br
 .mb-3
   table.table.table-bordered.table-hover.index-table
-    thead.thead-default
+    thead.thead-default.thead-light
       tr
         th= Vendor.human_attribute_name(:id)
         th= Vendor.human_attribute_name(:vendor_name)
         th= Vendor.human_attribute_name(:vendor_name_kana)
-        th= Vendor.human_attribute_name(:postal_code)
-        th= Vendor.human_attribute_name(:address)
         th= Vendor.human_attribute_name(:tel)
         th= Vendor.human_attribute_name(:fax)
         th= Vendor.human_attribute_name(:created_at)
         th= Vendor.human_attribute_name(:updated_at)
-        th
+        th 削除
 
       tbody
         - @vendors.each do |vendor|
@@ -38,16 +36,12 @@ br
             td= vendor.id
             td= link_to vendor.vendor_name, vendor
             td= vendor.vendor_name_kana
-            td.toc= vendor.postal_code
-            td= vendor.address
-            td.toc= vendor.tel
-            td.toc= vendor.fax
-            td.toc= vendor.created_at
-            td.toc= vendor.updated_at
+            td= vendor.tel
+            td= vendor.fax
+            td= l(vendor.created_at, format: :long)
+            td= l(vendor.updated_at, format: :long)
 
             td
-              = link_to edit_vendor_path(vendor), :method => :get do
-                = icon('fa', 'edit')
               = link_to vendor,
                       data: {:confirm => "仕入先「#{vendor.vendor_name}」を削除します。よろしいですか？"},
                       :method => :delete do

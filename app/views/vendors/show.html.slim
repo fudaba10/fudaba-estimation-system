@@ -30,17 +30,17 @@ table.table.table-hover.show-table
 
     tr
       th= Vendor.human_attribute_name(:created_at)
-      td= @vendor.created_at
+      td= l(@vendor.created_at, format: :long)
 
     tr
       th= Vendor.human_attribute_name(:updated_at)
-      td= @vendor.updated_at
+      td= l(@vendor.updated_at, format: :long)
 
 .nav.justify-content-center
-  = link_to '編集', edit_vendor_path, class: 'btn btn-primary mr-3'
+  = link_to '編集', edit_vendor_path, class: 'btn btn-success mr-3'
   = link_to '削除', @vendor, method: :delete,
           data: { confirm: "仕入先「#{@vendor.vendor_name}」を削除します。よろしいですか？"},
-          class: 'btn btn-danger'
+          class: 'btn btn-warning'
 
 .nav.justify-content-end
   = link_to '仕入先一覧', vendors_path

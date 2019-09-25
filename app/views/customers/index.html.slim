@@ -2,8 +2,8 @@ br
   div.page-header
     h5 顧客一覧
 
-p 【検索条件入力】
-= search_form_for @q, class: 'mb-5' do |f|
+p 検索条件入力
+= search_form_for @q do |f|
   .form-group.row
     = f.label :customer_name_cont, '顧客名', class: 'col-sm-2 col-form-label'
     .col-sm-10
@@ -12,25 +12,23 @@ p 【検索条件入力】
     = f.label :customer_name_kana_cont, '顧客名カナ', class: 'col-sm-2 col-form-label'
     .col-sm-10
       = f.search_field :customer_name_kana_cont, class: 'form-control'
-    .form-group
-      = f.submit class: 'btn btn-outline-secondary'
+  .form-group
+    = f.submit class: 'btn btn-outline-secondary'
 
 = link_to '新規登録', new_customer_path, class: 'btn btn-success'
 br
 .mb-3
   table.table.table-bordered.table-hover.index-table
-    thead.thead-default
+    thead.thead-default.thead-light
       tr
         th= Customer.human_attribute_name(:id)
         th= Customer.human_attribute_name(:customer_name)
         th= Customer.human_attribute_name(:customer_name_kana)
-        th= Customer.human_attribute_name(:postal_code)
-        th= Customer.human_attribute_name(:address)
         th= Customer.human_attribute_name(:tel)
         th= Customer.human_attribute_name(:fax)
         th= Customer.human_attribute_name(:created_at)
         th= Customer.human_attribute_name(:updated_at)
-        th
+        th 削除
 
       tbody
         - @customers.each do |customer|
@@ -38,22 +36,15 @@ br
             td= customer.id
             td= link_to customer.customer_name, customer
             td= customer.customer_name_kana
-            td.toc= customer.postal_code
-            td= customer.address
-            td.toc= customer.tel
-            td.toc= customer.fax
-            td.toc= customer.created_at
-            td.toc= customer.updated_at
+            td= customer.tel
+            td= customer.fax
+            td= l(customer.created_at, format: :long)
+            td= l(customer.updated_at, format: :long)
 
             td
-              = link_to edit_customer_path(customer), :method => :get do
-                = icon('fa','edit')
+              / = link_to edit_customer_path(customer), :method => :get do
+              /   = icon('fa','edit')
               = link_to customer,
                       data:{:confirm => "顧客「#{customer.customer_name}」を削除します。よろしいですか？"},
                       :method => :delete do
                 = icon('fa', 'trash-alt')
-
-                  / = link_to '編集', edit_customer_path(customer), class: 'btn btn-primary mr-3'
-                  / = link_to '削除', customer, method: :delete,
-                  /         data: { confirm: "顧客「#{customer.customer_name}」を削除します。よろしいですか？"},
-                  /         class: 'btn btn-danger'

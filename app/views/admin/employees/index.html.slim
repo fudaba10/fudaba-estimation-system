@@ -2,7 +2,7 @@ br
   div.page-header
     h5 社員一覧
 br
-p 【検索条件入力】
+p 検索条件入力
 = search_form_for @q, url: admin_employees_url, class: 'mb-5' do |f|
   .form-group.row
     = f.label :employee_name_cont, '社員名', class: 'col-sm-2 col-form-label'
@@ -12,14 +12,14 @@ p 【検索条件入力】
     = f.label :employee_name_kana_cont, '社員名カナ', class: 'col-sm-2 col-form-label'
     .col-sm-10
       = f.search_field :employee_name_kana_cont, class: 'form-control'
-    .form-group
-      = f.submit class: 'btn btn-outline-secondary'
+  .form-group
+    = f.submit class: 'btn btn-outline-secondary'
 
 = link_to '新規登録', new_admin_employee_path, class: 'btn btn-success'
 br
 .mb-3
   table.table.table-bordered.table-hover.index-table
-    thead.thead-default
+    thead.thead-default.thead-light
       tr
         th= Employee.human_attribute_name(:id)
         th= Employee.human_attribute_name(:employee_name)
@@ -28,7 +28,7 @@ br
         th= Employee.human_attribute_name(:admin)
         th= Employee.human_attribute_name(:created_at)
         th= Employee.human_attribute_name(:updated_at)
-        th
+        th 削除
 
       tbody
         - @employees.each do |employee|
@@ -38,12 +38,12 @@ br
             td= employee.employee_name_kana
             td= employee.login_id
             td= employee.admin? ? 'あり' : 'なし'
-            td= employee.created_at
-            td= employee.updated_at
+            td= l(employee.created_at, format: :long)
+            td= l(employee.updated_at, format: :long)
 
             td
-              = link_to edit_admin_employee_path(employee), :method => :get do
-                = icon('fa', 'edit')
+              / = link_to edit_admin_employee_path(employee), :method => :get do
+              /   = icon('fa', 'edit')
               = link_to [:admin, employee],
                       data: {:confirm => "社員「#{employee.employee_name}」を削除します。よろしいですか？"},
                       :method => :delete do

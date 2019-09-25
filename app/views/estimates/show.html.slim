@@ -2,16 +2,20 @@ br
   div.page-header
     h5 見積詳細
 
-p= EstimateHeader.human_attribute_name(:estimate_id)
-p= @estimate.estimate_id
-p= Customer.human_attribute_name(:customer_name)
-p= @estimate.customer.customer_name
-p= EstimateHeader.human_attribute_name(:customer_person)
-p= @estimate.customer_person
+table.estimate-show-header
+  tr
+    th= EstimateHeader.human_attribute_name(:estimate_id)
+    td= @estimate.estimate_id
+  tr
+    th= Customer.human_attribute_name(:customer_name)
+    td= @estimate.customer.customer_name
+  tr
+    th= EstimateHeader.human_attribute_name(:customer_person)
+    td= @estimate.customer_person
 
 .mb-3
-  table.table.table-bordered.table-hover.show-table
-    thead.thead-default.thread-dark
+  table.table.table-bordered.table-hover.estimate-show-table
+    thead.thead-default.thead-light
       tr
         th= EstimateDetail.human_attribute_name(:estimate_detail_id)
         th <label>商品名/型式・詳細</label>
@@ -41,10 +45,10 @@ p= @estimate.customer_person
 
 
 .nav.justify-content-center
-  = link_to '編集', edit_estimate_path(@estimate), class: 'btn btn-primary mr-3'
+  = link_to '編集', edit_estimate_path(@estimate), class: 'btn btn-success mr-3'
   = link_to '削除', estimate_path(@estimate), method: :delete,
           data: { confirm: "見積書「#{@estimate.estimate_id}」を削除します。よろしいですか？"},
-          class: 'btn btn-danger'
+          class: 'btn btn-warning'
 
 .nav.justify-content-end
   = link_to '見積書一覧', estimates_path

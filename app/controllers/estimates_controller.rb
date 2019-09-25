@@ -39,6 +39,7 @@ class EstimatesController < ApplicationController
     flash.now[:alert] = @estimate.errors.full_messages
 
     all_detail_is_valid = true
+    row_id = 1
     eh_param[:estimate_details_attributes].each do |index, ed_param|
       estimate_d = @estimate.estimate_details.build
       estimate_d.product_name = ed_param[:product_name]
@@ -52,8 +53,8 @@ class EstimatesController < ApplicationController
       estimate_d.delivery_period = ed_param[:delivery_period]
       estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
       estimate_d.estimate_header_id = @estimate.id
-      estimate_d.estimate_detail_id = ed_param[:estimate_detail_id].to_i
-
+      estimate_d.estimate_detail_id = row_id
+      row_id += 1
       estimate_d.save if header_is_valid && all_detail_is_valid
       if ! estimate_d.valid?
         all_detail_is_valid = false
@@ -90,6 +91,7 @@ class EstimatesController < ApplicationController
     estimate_d.destroy_all
 
     all_detail_is_valid = true
+    row_id = 1
     eh_param[:estimate_details_attributes].each do |index, ed_param|
       if ed_param[:_destroy] == 'false'
         estimate_d = @estimate.estimate_details.build
@@ -104,7 +106,8 @@ class EstimatesController < ApplicationController
         estimate_d.delivery_period = ed_param[:delivery_period]
         estimate_d.vendor = Vendor.find(ed_param[:vendor_id].to_i)
         estimate_d.estimate_header_id = @estimate.id
-        estimate_d.estimate_detail_id = ed_param[:estimate_detail_id].to_i
+        estimate_d.estimate_detail_id = row_id
+        row_id += 1
 
         estimate_d.save if header_is_valid && all_detail_is_valid
         if ! estimate_d.valid?
@@ -137,7 +140,7 @@ class EstimatesController < ApplicationController
   def estimate_params
     params.require(:estimate_header).permit(
         :customer_id, :customer_person, :estimate_id,
-        estimate_details_attributes: [:id, :estimate_detail_id, :product_name, :detail,
+        estimate_details_attributes: [:id, :product_name, :detail,
                                       :quantity, :kind, :unit_price, :delivery_period,
                                       :vendor_id, :_destroy])
   end

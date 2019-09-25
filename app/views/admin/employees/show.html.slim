@@ -26,17 +26,17 @@ table.table.table-hover.show-table
 
     tr
       th= Employee.human_attribute_name(:created_at)
-      td= @employee.created_at
+      td= l(@employee.created_at, format: :long)
 
     tr
       th= Employee.human_attribute_name(:updated_at)
-      td= @employee.updated_at
+      td= l(@employee.updated_at, format: :long)
 
 .nav.justify-content-center
-  = link_to '編集', edit_admin_employee_path, class: 'btn btn-primary mr-3'
+  = link_to '編集', edit_admin_employee_path, class: 'btn btn-success mr-3'
   = link_to '削除', [:admin, @employee], method: :delete,
           data: { confirm: "社員「#{@employee.employee_name}」を削除します。よろしいですか？"},
-          class: 'btn btn-danger'
+          class: 'btn btn-warning'
 
 .nav.justify-content-end
   = link_to '社員一覧', admin_employees_path

@@ -1,20 +1,16 @@
-- controller = params[:controller]
-- if controller == 'admin/employees'
--   controller = 'sessions'
-
 doctype html
 html
   head
     title
-      | FudabaMitsumori
+      | Fudaba's ESTIMATION SYSTEM
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag params[:controller], 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand Fudaba-Mitsumori
+    .app-title.navbar.navbar-expand-md.navbar-dark.bg-dark
+      .navbar-brand Fudaba's ESTIMATION SYSTEM
 
       ul.navbar-nav.ml-auto
         - if current_user

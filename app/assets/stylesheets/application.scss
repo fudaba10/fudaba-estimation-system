@@ -6,6 +6,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+//共通
 //各MENU見出し
 .page-header{
   position: relative;
@@ -30,6 +31,8 @@
   z-index: -1;
 
 }
+
+//new
 //登録用テーブル
 .regist-table {
   margin: auto;
@@ -51,6 +54,7 @@
   text-align: center;
 }
 
+//index
 //一覧表示テーブル
 .index-table {
   th{
@@ -61,6 +65,12 @@
   }
 }
 
+//検索条件
+.col-form-label{
+  text-decoration: underline mediumaquamarine double;
+}
+
+//show
 //詳細表示用テーブル
 .show-table {
   th{

@@ -1,18 +1,22 @@
-//登録画面
+//new
+//登録用テーブル
+.estimate-new-header{
+  td,th{
+    padding: 5px;
+  }
+}
+
 table#detail-association-insertion-point{
   margin: auto;
   width: 1000px;
   border-collapse: collapse;
   cellpadding: 0;
   cellspacing: 0;
+  td,th{
+    text-align: center;
+  }
 }
 
-.regist-btn{
-  text-align: center;
-}
-.add-row-btn {
-  text-align: right;
-}
 .product_name, .detail{
 
 }
@@ -39,6 +43,16 @@ table#detail-association-insertion-point{
 .vendor_id{
   width: 100px;
 }
+
+.regist-btn{
+  text-align: center;
+}
+
+.add-row-btn {
+  text-align: right;
+}
+
+
 tbody.nested-fields{
   td{
     border-top-style: none;
@@ -46,7 +60,19 @@ tbody.nested-fields{
   }
 }
 
-//一覧画面
+//index
 .estimate-index-table{
   text-align: center;
+}
+
+//show
+.estimate-show-table {
+  text-align: center;
+
+}
+
+.estimate-show-header{
+  td,th{
+    padding: 5px;
+  }
 }

@@ -8,7 +8,7 @@
 
 = form_with model: @estimate, url: path, method: method, local: true do |f|
 
-  table
+  table.estimate-new-header
     tr
       th <label>顧客名</label>
       td= f.collection_select :customer_id, Customer.where(is_deleted: false).order(id: :asc), :id, :customer_name, class: 'form-control'
@@ -28,7 +28,7 @@
         association_insertion_method: 'append' }
   br
   table.table.table-bordered.table-sm#detail-association-insertion-point
-    thead.thead-dark
+    thead.thead-light
       tr
         th= EstimateDetail.human_attribute_name(:estimate_detail_id)
         th <label>商品名/型式・詳細</label>
@@ -44,7 +44,7 @@
           = render 'estimate_detail_fields', f: d
   br
   div.regist-btn
-    = f.submit nil, class: 'btn btn-primary'
+    = f.submit nil, class: 'btn btn-success'
 
 javascript:
     var rows = 1;
@@ -54,14 +54,12 @@ javascript:
 
     var toggleDeleteDetailLink = function () {
         rows = $("#detail-association-insertion-point tbody").length;
-        console.log("rows = " + rows);
         if (rows == 1) {
             $('.del_row').hide();
         }
     };
 
     $(document).ready(function () {
-        $("#estimate_detail_id").val(1);
         $('#estimate_detail_id').text(1);
         setId();
         toggleDeleteDetailLink();
@@ -93,7 +91,6 @@ javascript:
             toggleDeleteDetailLink();
         });
         $(document).on("click", ".del_row", function () {
-            console.log("行削除を押しました");
             toggleDeleteDetailLink();
             setTimeout(
                 setId,
@@ -104,15 +101,12 @@ javascript:
 
     //IDをセット
     function setId() {
-        var lastId = 0;
         var detailId = 0;
         $(".estimate_detail_id").each(function (index) {
-            if ($(this).is(":hidden")) {
-                lastId++;
-                $(this).attr("id", "estimate_detail_id" + (index + 1)).val(lastId);
-            }else{
-                detailId++;
-                $(this).attr("id", "disp_estimate_detail_id" + (index + 1)).text(detailId);
+            $(this).attr("id", "estimate_detail_id" + (index + 1)).text(index + 1);
+            if(!$(this).parents(".nested-fields").is("hidden")){
+              detailId++;
+              $(this).attr("id", "estimate_detail_id" + (index + 1)).text(detailId);
             }
         });
         $(".quantity").each(function (index) {

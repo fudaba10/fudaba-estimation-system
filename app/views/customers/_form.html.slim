@@ -7,8 +7,8 @@
   table.table.table-bordered.regist-table
     tr
       .form_group
-        th= f.label :customer_name
-        td= f.text_field :customer_name, class: 'form-control', id: 'customer_name'
+      th= f.label :customer_name
+      td= f.text_field :customer_name, class: 'form-control', id: 'customer_name'
     tr
       .form_group
       th= f.label :customer_name_kana
@@ -39,4 +39,4 @@
       td= f.text_field :remarks, class: 'form-control', id: 'remarks'
   br
   div.regist-btn
-    = f.submit '登録', class: 'btn btn-primary'
+    = f.submit nil, class: 'btn btn-success'
