@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :require_admin
+
   def index
     @q = Customer.where(is_deleted: false).order(id: :asc).ransack(params[:q])
     @customers = @q.result(distinct: true)
@@ -42,5 +44,9 @@ class CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:customer_name, :customer_name_kana, :customer_initial, :postal_code, :address,
                                      :tel, :fax, :remarks)
+  end
+
+  def require_admin
+    redirect_to root_url unless current_user.admin?
   end
 end

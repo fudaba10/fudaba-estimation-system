@@ -1,4 +1,5 @@
 class VendorsController < ApplicationController
+  before_action :require_admin
   def index
     @q = Vendor.where(is_deleted: false).order(id: :asc).ransack(params[:q])
     @vendors = @q.result(distinct: true)
@@ -44,4 +45,7 @@ class VendorsController < ApplicationController
         :vendor_name, :vendor_name_kana, :postal_code, :address, :tel, :fax)
   end
 
+  def require_admin
+    redirect_to root_url unless current_user.admin?
+  end
 end

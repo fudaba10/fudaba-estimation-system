@@ -1,4 +1,6 @@
 class Admin::EmployeesController < ApplicationController
+  before_action :require_admin
+
   def index
     @q = Employee.where(is_deleted: false).order(id: :asc).ransack(params[:q])
     @employees = @q.result(distinct: true)
@@ -49,7 +51,7 @@ class Admin::EmployeesController < ApplicationController
         :employee_name, :employee_name_kana, :login_id, :password, :password_confirmation, :admin)
   end
 
-  # def require_admin
-  #   redirect_to root_url unless current_user.admin?
-  # end
+  def require_admin
+    redirect_to root_url unless current_user.admin?
+  end
 end
